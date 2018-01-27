@@ -16,7 +16,7 @@ exports.read = function (req, res) {
 };
 
 /**
- * Update a User
+ * Update a User testing
  */
 exports.update = function (req, res) {
   var user = req.model;
