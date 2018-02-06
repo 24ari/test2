@@ -31,6 +31,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
+    .state('post-ride', {
+      url: '/post-ride',
+      templateUrl: 'modules/rides/client/views/postride.client.view.html'
+    })
     .state('forbidden', {
       url: '/forbidden',
       templateUrl: 'modules/core/client/views/403.client.view.html',

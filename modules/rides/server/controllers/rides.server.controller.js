@@ -14,8 +14,14 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
   var ride = new Ride(req.body);
-  ride.user = req.user;
+  //ride.user = req.user;
+  console.log(req.body);
+  ride.arrival = req.arrival;
+  ride.departure = req.departure;
+ // ride.date = req.date;
+  ride.price = req.price;
 
+  console.log("at least we got here");
   ride.save(function(err) {
     if (err) {
       return res.status(400).send({

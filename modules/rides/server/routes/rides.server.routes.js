@@ -10,7 +10,7 @@ module.exports = function(app) {
   // Rides Routes
   app.route('/api/rides').all(ridesPolicy.isAllowed)
     .get(rides.list)
-    .post(rides.create);
+    .post(rides.create); //creating a new ride
 
   app.route('/api/rides/:rideId').all(ridesPolicy.isAllowed)
     .get(rides.read)
@@ -20,3 +20,4 @@ module.exports = function(app) {
   // Finish by binding the Ride middleware
   app.param('rideId', rides.rideByID);
 };
+
