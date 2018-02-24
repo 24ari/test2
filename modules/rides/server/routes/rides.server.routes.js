@@ -17,6 +17,8 @@ module.exports = function(app) {
     .put(rides.update)
     .delete(rides.delete);
 
+  
+
   // Finish by binding the Ride middleware
   app.param('rideId', rides.rideByID);
 };

@@ -31,6 +31,12 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
+
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'modules/rides/client/views/dashboard.client.view.html'
+    })
+
     .state('post-ride', {
       url: '/post-ride',
       templateUrl: 'modules/rides/client/views/postride.client.view.html'

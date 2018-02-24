@@ -26,7 +26,7 @@ angular.module('core').service('Menus', [
         }
       }
 
-      console.log("we cant render bro");
+      //console.log("we cant render bro");
       return false; 
 
     };

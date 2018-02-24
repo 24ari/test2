@@ -12,7 +12,7 @@
       .state('rides', {
         abstract: true,
         url: '/rides',
-        template: '<ui-view/>'
+        templateUrl: 'modules/rides/client/views/form-ride.client.view.html'
       })
       .state('rides.list', {
         url: '',
@@ -25,7 +25,7 @@
       })
       .state('rides.create', {
         url: '/create',
-        templateUrl: 'modules/rides/client/views/form-ride.client.view.html',
+        templateUrl: 'modules/rides/client/views/postride.client.view.html',
         controller: 'RidesController',
         controllerAs: 'vm',
         resolve: {
