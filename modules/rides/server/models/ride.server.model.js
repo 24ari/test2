@@ -16,16 +16,16 @@ var RideSchema = new Schema({
   //   required: 'Please fill Ride name',
   //   trim: true
   // },
-  created: {
-    type: Date,
-    default: Date.now
-  },
+  // created: {
+  //   type: Date,
+  //   default: Date.now
+  // },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
   },
   date: {
-    type:Date
+    type:String
   },
   price: {
     type: String
@@ -39,3 +39,4 @@ var RideSchema = new Schema({
 });
 
 mongoose.model('Ride', RideSchema);
+

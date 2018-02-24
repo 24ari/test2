@@ -28,16 +28,16 @@ exports.invokeRolesPolicies = function () {
       permissions: ['get', 'post']
     }, {
       resources: '/api/rides/:rideId',
-      permissions: ['get']
+      permissions: ['*'] //changed this
     }]
   }, {
     roles: ['guest'],
     allows: [{
       resources: '/api/rides',
-      permissions: ['get']
+      permissions: ['get','post'] //changed this
     }, {
       resources: '/api/rides/:rideId',
-      permissions: ['get']
+      permissions: ['*'] //and this
     }]
   }]);
 };

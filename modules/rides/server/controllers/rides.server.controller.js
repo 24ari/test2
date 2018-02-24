@@ -16,10 +16,11 @@ exports.create = function(req, res) {
   var ride = new Ride(req.body);
   //ride.user = req.user;
   console.log(req.body);
-  ride.arrival = req.arrival;
-  ride.departure = req.departure;
- // ride.date = req.date;
-  ride.price = req.price;
+  ride.user = req.user; //not displaying user
+  ride.arrival = req.body.arrival;
+  ride.departure = req.body.departure;
+  ride.date = req.body.date;
+  ride.price = req.body.price;
 
   console.log("at least we got here");
   ride.save(function(err) {
@@ -29,6 +30,7 @@ exports.create = function(req, res) {
       });
     } else {
       res.jsonp(ride);
+      //console.log('lol' + res.jsonp(ride));
     }
   });
 };
