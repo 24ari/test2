@@ -28,7 +28,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
         //$state.go($state.previous.state.name || 'dashboard', $state.previous.params);
-        $state.go('dashboard', $state.previous.params);
+        $state.go('user-profile', $state.previous.params);
 
       }).error(function (response) {
         $scope.error = response.message;
@@ -50,7 +50,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
         //$state.go($state.previous.state.name || 'dashboard', $state.previous.params);
-        $state.go('dashboard', $state.previous.params);
+        $state.go('user-profile', $state.previous.params);
       }).error(function (response) {
         $scope.error = response.message;
       });
