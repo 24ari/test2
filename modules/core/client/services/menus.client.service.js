@@ -26,7 +26,9 @@ angular.module('core').service('Menus', [
         }
       }
 
-      return false;
+      //console.log("we cant render bro");
+      return false; 
+
     };
 
     // Validate menu existance
