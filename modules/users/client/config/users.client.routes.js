@@ -13,6 +13,22 @@ angular.module('users').config(['$stateProvider',
           roles: ['user', 'admin']
         }
       })
+
+
+      .state('profiles', {
+        url: '/profiles',
+        templateUrl: 'modules/users/client/views/user-profile.client.view.html'
+        
+        // resolve: {
+        //   userResolve: ['$stateParams', 'User', function ($stateParams, User) {
+        //     return User.get({
+        //       userId: $stateParams.userId
+        //     });
+        //   }]
+        // }
+      })
+
+
       .state('settings.profile', {
         url: '/profile',
         templateUrl: 'modules/users/client/views/settings/edit-profile.client.view.html'
