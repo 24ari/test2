@@ -57,19 +57,19 @@
     .huge {
       font-size: 25px;
     }
-    
+
     .opaque {
       opacity: 0.75;
     }
-    
+
     .padder {
       padding: 15px;
     }
-    
+
     .huge {
       font-size: 25px;
     }
-    
+
     img.red-hover:hover {
       opacity: 0.95;
       border: 1px solid gray;
@@ -88,7 +88,7 @@
     .top-margin {
       margin-top: 50px;
     }
-    
+
     .top-margin-2 {
       margin-top: 25px;
     }
@@ -134,9 +134,9 @@
                 <tr>
                   <th>Name</th>
                   <th>Price</th>
-                  <th>Date1</th>
-                  <th>Rountrip?</th>
-                  <th>Date2</th>
+                  <th>Departure</th>
+                  <th>Roundtrip?</th>
+                  <th>Arrival</th>
                 </tr>
                 <tr ng-repeat="volunteer in volunteers | filter: query" ui-sref="adminViewVolunteer({ volunteerId:volunteer.user._id})">
                   <td>{{volunteer.application.name}}</td>
@@ -151,14 +151,14 @@
             </div>
 
           </div>
-          
+
         </div>
 
       </div>
     </div>
   </div>
 <button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button>
- 
+
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 

@@ -25,16 +25,16 @@
 
     var methods = {
       getAll: function() {
-          return $http.get('/api/students');
+        return $http.get('/api/students');
       },
 
       create: function(rides) {
-          return $http.post('/api/rides', rides);
+        return $http.post('/api/rides', rides);
       },
 
 
       read: function(rideId){
-          return $http.get('/api/rides/' +  rideId);
+        return $http.get('/api/rides/' + rideId);
       },
 
       update: function(ride, rideId) {
@@ -45,9 +45,9 @@
         return $http.delete('/api/rides/' + rideId);
       }
 
-     }; //closing methods
+    }; //closing methods
 
-       return methods;
-    }
+    return methods;
+  }
 
 }());

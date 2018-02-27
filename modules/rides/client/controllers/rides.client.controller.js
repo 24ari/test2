@@ -19,7 +19,7 @@
     // vm.save = save;
 
 
-    $scope.arrival = ''; 
+    $scope.arrival = '';
     $scope.departure = '';
     $scope.price = '';
 
@@ -31,24 +31,24 @@
         arrival: $scope.arrival,
         departure: $scope.departure,
         price: $scope.price
-      }
+      };
 
 
-        return ride;
+      return ride;
 
     }
 
 
 
     $scope.saveRide = function(){ //function to save ride
-      console.log("we here bruh");
+      console.log('we here bruh');
       var rides = createRide(); //passing ride info
       RidesService.create(rides).then(function(response){
-          console.log('Success creating ride!');
-        },function(error){
-          $scope.error = 'Unable to create ride!\n' +error;
-        
-        });
+        console.log('Success creating ride!');
+      },function(error){
+        $scope.error = 'Unable to create ride!\n' +error;
+
+      });
     };
 
 
