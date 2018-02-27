@@ -70,6 +70,31 @@ var UserSchema = new Schema({
     type: String,
     default: 'modules/users/client/img/profile/default.png'
   },
+  school: {
+    type:String
+  },
+
+  phone: {
+    type:String
+  },
+
+  rate:{
+    type:String
+  },
+
+  carModel:{
+      type:String
+  },
+
+  carMake:{
+      type:String
+  },
+
+  aboutUser:{
+      type:String
+  },
+
+
   provider: {
     type: String,
     required: 'Provider is required'

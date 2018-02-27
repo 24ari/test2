@@ -25,7 +25,11 @@
 
     var methods = {
       getAll: function() {
+<<<<<<< HEAD
+        return $http.get('/api/students');
+=======
           return $http.get('/api/rides');
+>>>>>>> FinalWork
       },
 
       create: function(rides) {

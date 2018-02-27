@@ -1,0 +1,58 @@
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="modules/users/client/css/newcss.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body ng-controller = "EditProfileController">
+
+      <form name = "userForm"  ng-controller="EditProfileController" >
+      
+        <fieldset>
+          <legend><span class="number">1</span>Your basic info</legend>
+          <label for="First name">Name:</label>
+          <input ng-model='user.firstName' type="text" id="name" name="firstName">
+          
+          <label for="Last Name">Name:</label>
+          <input ng-model='user.lastName' type="text" id="lastname" name="lastName">
+
+          <label for="mail">Email:</label>
+          <input ng-model='user.email' type="email" id="mail" name="user_email">
+
+          <label for="mail">School:</label>
+          <input ng-model='user.school' type="text" id="school" name="user_school">
+
+            <label for="mail">Phone #:</label>
+          <input ng-model='user.phone'  type= "text" id="phone" name="user_phone">
+
+
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Your profile</legend>
+          <label for="bio">About you:</label>
+          <textarea id="bio"  ng-model = 'user.aboutUser' name="user_bio"></textarea>
+        </fieldset>
+        
+
+      <fieldset>
+          <legend><span class="number">3</span>Your vehicle</legend>
+          <label for="name">Make:</label>
+          <input ng-model = 'user.carModel' type="text" id="name" name="user_name">
+          <label for="name">Model:</label>
+          <input ng-model = 'user.carMake' type="text" id="name" name="user_name">
+
+
+        </fieldset>
+        <fieldset>
+  
+
+
+        <button type="submit" ng-click="updateUserProfile()">Update</button>
+      </form>
+      
+    </body>
+</html>
