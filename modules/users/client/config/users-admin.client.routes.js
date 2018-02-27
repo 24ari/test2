@@ -6,9 +6,16 @@ angular.module('users.admin.routes').config(['$stateProvider',
     $stateProvider
       .state('admin.users', {
         url: '/users',
-        templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
+        templateUrl: 'modules/users/client/views/list-users.client.view.html',
         controller: 'UserListController'
       })
+
+       .state('admin.profiles', {
+        url: '/profiles',
+        templateUrl: 'modules/users/client/views/user-profile.client.view.html',
+        controller: 'UserController'
+      })
+
       .state('admin.user', {
         url: '/users/:userId',
         templateUrl: 'modules/users/client/views/admin/view-user.client.view.html',

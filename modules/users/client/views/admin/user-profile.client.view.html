@@ -7,9 +7,9 @@
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body ng-controller = "EditProfileController">
+    <body ng-controller = "UserController">
 
-      <form name = "userForm"  ng-controller="EditProfileController" >
+      <form name = "userForm" ng-submit="update(userForm.$valid)" novalidate>
       
         <fieldset>
           <legend><span class="number">1</span>Your basic info</legend>
@@ -22,28 +22,32 @@
           <label for="mail">Email:</label>
           <input ng-model='user.email' type="email" id="mail" name="user_email">
 
-          <label for="mail">School:</label>
-          <input ng-model='user.school' type="text" id="school" name="user_school">
-
             <label for="mail">Phone #:</label>
-          <input ng-model='user.phone'  type= "text" id="phone" name="user_phone">
-
+          <input ng-model='user.phone'  type= "text" id="mail" name="user_phone">
 
         </fieldset>
         
         <fieldset>
           <legend><span class="number">2</span>Your profile</legend>
           <label for="bio">About you:</label>
-          <textarea id="bio"  ng-model = 'user.aboutUser' name="user_bio"></textarea>
+          <textarea id="bio" name="user_bio"></textarea>
         </fieldset>
+        <fieldset>
+  
+          <label>Interests:</label>
+          <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
+            <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
+          <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
         
+        </fieldset>
 
       <fieldset>
           <legend><span class="number">3</span>Your vehicle</legend>
-          <label for="name">Make:</label>
-          <input ng-model = 'user.carModel' type="text" id="name" name="user_name">
+          <label for="bio">About you:</label>
           <label for="name">Model:</label>
-          <input ng-model = 'user.carMake' type="text" id="name" name="user_name">
+          <input ng-model = 'vehicle_model' type="text" id="name" name="user_name">
+          <label ng-model = 'vehicle_model' for="name">Make:</label>
+          <input type="text" id="name" name="user_name">
 
 
         </fieldset>
@@ -51,7 +55,7 @@
   
 
 
-        <button type="submit" ng-click="updateUserProfile()">Update</button>
+        <button type="submit">Update</button>
       </form>
       
     </body>

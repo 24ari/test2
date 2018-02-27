@@ -28,7 +28,11 @@ exports.update = function (req, res) {
   user.roles = req.body.roles;
   user.school = req.body.school;
   user.rate = req.body.rate;
-  
+  user.aboutUser = req.body.aboutUser;
+  user.phone = req.body.phone;
+  user.carMake = req.body.carMake; //create vehivle structure
+  user.carModel = req.body.carModel;
+
 
 
 

@@ -39,7 +39,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
       .state('user-profile', {
       url: '/user-profile',
-      templateUrl: 'modules/users/client/views/user-profile.client.view.html'
+      templateUrl: 'modules/users/client/views/admin/user-profile.client.view.html'
     })
     
 
