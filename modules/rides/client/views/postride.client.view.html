@@ -1,107 +1,121 @@
 <html>
-    <head>
-        <title>Post a Ride!</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-        <link href='custom.css' rel='stylesheet' type='text/css'>
-    </head>
-    <body>
+<title>Admin Dashboard</title>
+<meta charset="UTF-8">
 
-        <div class="container">
+<head>
+  <!-- W3 CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="../css/sb-admin.css" type="text/css" rel="stylesheet">
+  <link href="../css/main.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/modules/core/client/css/core.css">
+  <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
+  <link href="../css/bootstrap-rtl.css" type="text/css" rel="stylesheet">
+  <link href="../css/sb-admin-rlt.css" type="text/css" rel="stylesheet">
+  <link href="../css/bootstrap-rtl.min.css" type="text/css" rel="stylesheet">
+  <!-- Morris Charts CSS -->
+  <link href="../css/plugins/morris.css" rel="stylesheet">
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
-            <div class="row">
+  <style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Roboto", sans-serif;
+    }
+    .w3-sidebar {
+      z-index: 3;
+      width: 250px;
+      top: 43px;
+      bottom: 0;
+      height: inherit;
+    }
+    u {
+      text-decoration: none;
+      /*border-bottom: 2px solid white;*/
+    }
+    .opaque {
+      opacity: 0.75;
+    }
+    .padder {
+      padding: 15px;
+    }
+    .huge {
+      font-size: 25px;
+    }
+    img.red-hover:hover {
+      opacity: 0.95;
+      border: 1px solid gray;
+    }
+    img.green-hover:hover {
+      opacity: 0.7;
+      border: 1px solid gray;
+    }
+    .top-margin {
+      margin-top: 50px;
+    }
+    .top-margin-2 {
+      margin-top: 25px;
+    }
+  </style>
+</head>
 
-                <div class="col-lg-8 col-lg-offset-2">
+<!---
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="w3-main"  style="margin-left:250px">
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal">Welcome, </h1>
+      <p>Here are your to-do's:</p>
+      <button ng-click = "getAllStudent()">Test Button</button>
+    </div>
+  </div>
+-->
 
-                    <h1>Post a Ride!</a></h1>
-
-                 
+<body>
 
 
-                    <form id="contact-form" method="post" action="contact.php" role="form">
 
-                        <div class="messages"></div>
+<form ng-controller="RidesController">
+  <div class="form-group">
+    <label>Departure</label>
+    <input class="form-control" ng-model = "departure">
+  </div>
+  <div class="form-group">
+    <label >Arrival</label>
+    <input class="form-control" ng-model = "arrival">
+  </div>
+  <div class="form-group">
+    <label>Date</label>
+    <input class="form-control" ng-model = "date">
+  </div>
+   <div class="form-group">
+    <label >Price</label>
+    <input class="form-control" ng-model = "price">
+  </div>
+  
 
-                        <div class="controls">
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Roundtrip</label>
+  </div>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_name">Departure *</label>
-                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Departing from..." required="required" data-error="Departure is required.">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_lastname">Arrival*</label>
-                                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Traveling to..." required="required" data-error="Arrival is required.">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_email">Email *</label>
-                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_phone">Phone</label>
-                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                  <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_phone">Date</label>
-                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_phone">Price</label>
-                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="$$$">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="form_message">Message *</label>
-                                        <textarea id="form_message" name="message" class="form-control" placeholder="Message *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="submit" class="btn btn-success btn-send" value="Post">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p class="text-muted"><strong>*</strong> These fields are required.</p>
-                                </div>
-                            </div>
-                        </div>
+  <button type="submit" class="btn btn-primary" ng-click = 'saveRide()'>Post Ride!</button>
+</form>
 
-                    </form>
+  </div>
 
-                </div><!-- /.8 -->
 
-            </div> <!-- /.row-->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
-        </div> <!-- /.container-->
-
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="validator.js"></script>
-        <script src="contact.js"></script>
-    </body>
-</html>
+</body>
