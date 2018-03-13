@@ -23,7 +23,7 @@
     $scope.departure = '';
     $scope.price = '';
 
-
+    console.log("inside ridesController");
 
     function createRide(){
 
@@ -50,6 +50,25 @@
         
         });
     };
+
+
+     $scope.listRides = function() {
+
+      //get all the rides, then bind it to the scope
+
+      console.log("we are in listRides");
+      RidesService.getAll().then(function(response) {
+        $scope.rides = response.data;
+        console.log(response.data);
+        //console.log("we are here bro");
+      }, function(error) {
+        //console.log("we have an issue");
+        $scope.error = "Unable to retrieve ride offers! \n" + error;
+      });
+    };
+
+
+
 
 
 

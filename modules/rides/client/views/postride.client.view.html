@@ -20,7 +20,7 @@
                  
 
 
-                    <form id="contact-form" method="post" action="contact.php" role="form">
+                    <form id="contact-form" role="form" ng-controller="RidesController">
 
                         <div class="messages"></div>
 
@@ -30,14 +30,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_name">Departure *</label>
-                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Departing from..." required="required" data-error="Departure is required.">
+                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Departing from..." required="required" data-error="Departure is required." ng-model="departure">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_lastname">Arrival*</label>
-                                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Traveling to..." required="required" data-error="Arrival is required.">
+                                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Traveling to..." required="required" data-error="Arrival is required." ng-model="arrival">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -60,14 +60,14 @@
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_phone">Date</label>
-                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
+                                        <input id="form_phone" type="tel" name="date" class="form-control" placeholder="Please enter your phone" ng-model="date">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_phone">Price</label>
-                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="$$$">
+                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="$$$" ng-model= "price">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="submit" class="btn btn-success btn-send" value="Post">
+                                    <input type="submit" class="btn btn-success btn-send" ng-click = 'saveRide()'>
                                 </div>
                             </div>
                             <div class="row">
