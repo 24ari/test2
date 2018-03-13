@@ -23,45 +23,25 @@
     $scope.departure = '';
     $scope.price = '';
     $scope.date = '';
+    $scope.spotsLeft ='';
 
     console.log("inside ridesController");
 
-    if(Authentication.user.roles !== undefined){
-      console.log(Authentication.user.roles);
-
-    }
-
-else{
-  console.log("you are undefined bro");
-}
-
     function createRide(){
-
-console.log("at least we ar in createRide ");
-
-        
       var ride = {
         arrival: $scope.arrival,
         departure: $scope.departure,
         price: $scope.price,
         date: $scope.date
       }
-
-
         return ride;
-      
     }
 
 
     $scope.checkAut = function(){
-
-      console.log("at least we hit check");
-
       if (Authentication.user !== undefined && typeof Authentication.user === 'object') {
-          console.log("we are not undefined");
           $state.go('post-ride');
         } else {
-          console.log("you are indeed undefined bro");
           $state.go('authentication.signin').then(function () {
             storePreviousState(toState, toParams);
           });
@@ -71,7 +51,6 @@ console.log("at least we ar in createRide ");
 
 
     $scope.saveRide = function(){ //function to save ride
-      console.log("we here bruh");
       var rides = createRide(); //passing ride info
 
       RidesService.create(rides).then(function(response){
@@ -86,24 +65,13 @@ console.log("at least we ar in createRide ");
      $scope.listRides = function() {
 
       //get all the rides, then bind it to the scope
-
-      console.log("we are in listRides");
       RidesService.getAll().then(function(response) {
         $scope.rides = response.data;
         console.log(response.data);
-        //console.log("we are here bro");
       }, function(error) {
-        //console.log("we have an issue");
         $scope.error = "Unable to retrieve ride offers! \n" + error;
       });
     };
-
-
-
-
-
-
-
 
 
     // Remove existing Ride
