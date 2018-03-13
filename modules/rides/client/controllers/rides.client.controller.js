@@ -26,8 +26,20 @@
 
     console.log("inside ridesController");
 
+    if(Authentication.user.roles !== undefined){
+      console.log(Authentication.user.roles);
+
+    }
+
+else{
+  console.log("you are undefined bro");
+}
+
     function createRide(){
 
+console.log("at least we ar in createRide ");
+
+        
       var ride = {
         arrival: $scope.arrival,
         departure: $scope.departure,
@@ -37,14 +49,31 @@
 
 
         return ride;
-
+      
     }
 
+
+    $scope.checkAut = function(){
+
+      console.log("at least we hit check");
+
+      if (Authentication.user !== undefined && typeof Authentication.user === 'object') {
+          console.log("we are not undefined");
+          $state.go('post-ride');
+        } else {
+          console.log("you are indeed undefined bro");
+          $state.go('authentication.signin').then(function () {
+            storePreviousState(toState, toParams);
+          });
+        }
+
+    }
 
 
     $scope.saveRide = function(){ //function to save ride
       console.log("we here bruh");
       var rides = createRide(); //passing ride info
+
       RidesService.create(rides).then(function(response){
           console.log('Success creating ride!');
         },function(error){
