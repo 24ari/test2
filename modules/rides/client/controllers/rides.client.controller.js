@@ -22,6 +22,7 @@
     $scope.arrival = ''; 
     $scope.departure = '';
     $scope.price = '';
+    $scope.date = '';
 
     console.log("inside ridesController");
 
@@ -30,7 +31,8 @@
       var ride = {
         arrival: $scope.arrival,
         departure: $scope.departure,
-        price: $scope.price
+        price: $scope.price,
+        date: $scope.date
       }
 
 

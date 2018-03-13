@@ -116,8 +116,10 @@
       <div class="panel panel-default">
 
         <div class="panel-heading">
-          <h3 class="panel-title"><i class=""></i> <b>Rides bobo</b></h3>
+          <h3 class="panel-title"><i class=""></i> <b>Rides</b></h3>
         </div>
+
+    
 
         <div class="row" ng-controller="RidesController" data-ng-init='listRides()'>
 
@@ -134,30 +136,34 @@
                 <tr>
                   <th>Name</th>
                   <th>Date</th>
-                  <th>Price</th>
                   <th>Departure</th>
                   <th>Arrival</th>
+                  <th>Spots Left </th>
+                  <th>Price</th>
                 </tr>
                 <tr ng-repeat="ride in rides | filter: query" ui-sref="adminViewVolunteer({ volunteerId:volunteer.user._id})">
                   <td>{{ride.user.displayName}}</td>
                   <td>{{ride.date}}</td>
-                  <td>{{ride.price}}</td>
                   <td>{{ride.departure}}</td>
                   <td>{{ride.arrival}}</td>
+                  <td>{{ride.spotsLeft}}</td>
+                  <td>{{ride.price}}</td>
+
                   <td></td>
                 </tr>
               </table>
 
             </div>
-
+    <button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button>
           </div>
           
         </div>
 
       </div>
     </div>
+
   </div>
-<button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button>
+
  
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>

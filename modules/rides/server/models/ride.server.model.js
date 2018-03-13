@@ -36,6 +36,9 @@ var RideSchema = new Schema({
   arrival:{
     type:String
   },
+  spotsLeft:{
+    type:String
+  },
 
   canPickUp:{
     type:Boolean
