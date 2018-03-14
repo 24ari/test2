@@ -55,6 +55,7 @@
 
       RidesService.create(rides).then(function(response){
           console.log('Success creating ride!');
+          // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Ride offer posted!' });
         },function(error){
           $scope.error = 'Unable to create ride!\n' +error;
         
