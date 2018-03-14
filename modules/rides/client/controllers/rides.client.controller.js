@@ -23,30 +23,39 @@
     $scope.departure = '';
     $scope.price = '';
     $scope.date = '';
+    $scope.spotsLeft ='';
 
     console.log("inside ridesController");
 
     function createRide(){
-
       var ride = {
         arrival: $scope.arrival,
         departure: $scope.departure,
         price: $scope.price,
         date: $scope.date
       }
-
-
         return ride;
+    }
+
+
+    $scope.checkAut = function(){
+      if (Authentication.user !== undefined && typeof Authentication.user === 'object') {
+          $state.go('post-ride');
+        } else {
+          $state.go('authentication.signin').then(function () {
+            storePreviousState(toState, toParams);
+          });
+        }
 
     }
 
 
-
     $scope.saveRide = function(){ //function to save ride
-      console.log("we here bruh");
       var rides = createRide(); //passing ride info
+
       RidesService.create(rides).then(function(response){
           console.log('Success creating ride!');
+          // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Ride offer posted!' });
         },function(error){
           $scope.error = 'Unable to create ride!\n' +error;
         
@@ -57,24 +66,13 @@
      $scope.listRides = function() {
 
       //get all the rides, then bind it to the scope
-
-      console.log("we are in listRides");
       RidesService.getAll().then(function(response) {
         $scope.rides = response.data;
         console.log(response.data);
-        //console.log("we are here bro");
       }, function(error) {
-        //console.log("we have an issue");
         $scope.error = "Unable to retrieve ride offers! \n" + error;
       });
     };
-
-
-
-
-
-
-
 
 
     // Remove existing Ride

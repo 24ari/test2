@@ -141,7 +141,7 @@
                   <th>Spots Left </th>
                   <th>Price</th>
                 </tr>
-                <tr ng-repeat="ride in rides | filter: query" ui-sref="adminViewVolunteer({ volunteerId:volunteer.user._id})">
+                <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})">
                   <td>{{ride.user.displayName}}</td>
                   <td>{{ride.date}}</td>
                   <td>{{ride.departure}}</td>
@@ -154,7 +154,9 @@
               </table>
 
             </div>
-    <button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button>
+    <!-- <button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button> -->
+
+    <button type="button" class="btn btn-primary" ng-click= "checkAut()" >Post Ride!</button>
           </div>
           
         </div>

@@ -49,8 +49,11 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     })
 
     .state('driver-profile', {
-      url: '/driver-profile',
-      templateUrl: 'modules/core/client/views/profile.client.view.html'
+      url: '/driver-profile/:driverId',
+      templateUrl: 'modules/core/client/views/profile.client.view.html',
+      controller: function($scope,$stateParams){
+          $scope.id = $stateParams.rideId;
+      }
     })
 
 
