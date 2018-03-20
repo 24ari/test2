@@ -24,6 +24,7 @@
     $scope.price = '';
     $scope.date = '';
     $scope.spotsLeft ='';
+    $scope.spotsAvailable ='';
 
     console.log("inside ridesController");
 
@@ -32,7 +33,8 @@
         arrival: $scope.arrival,
         departure: $scope.departure,
         price: $scope.price,
-        date: $scope.date
+        date: $scope.date,
+        spots: $scope.spotsAvailable
       }
         return ride;
     }
