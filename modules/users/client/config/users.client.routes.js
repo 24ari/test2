@@ -29,10 +29,21 @@ angular.module('users').config(['$stateProvider',
       })
 
 
-      .state('settings.profile', {
+  
+
+      // .state('settings.profile', { //come back to this later!!
+      //   url: '/profile',
+      //   templateUrl: 'modules/users/client/views/settings/edit-profile.client.view.html'
+      // })
+
+    .state('settings.profile', { //come back to this later!!
         url: '/profile',
-        templateUrl: 'modules/users/client/views/settings/edit-profile.client.view.html'
+        templateUrl: 'modules/users/client/views/user-profile.client.view.html'
       })
+
+
+
+
       .state('settings.password', {
         url: '/password',
         templateUrl: 'modules/users/client/views/settings/change-password.client.view.html'
