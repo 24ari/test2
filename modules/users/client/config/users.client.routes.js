@@ -29,7 +29,11 @@ angular.module('users').config(['$stateProvider',
       })
 
 
-  
+    .state('dashboard1', { //come back to this later!!
+        url: '/dashboard1',
+        templateUrl: 'modules/users/client/views/user-dashboard.client.view.html'
+      })
+
 
       // .state('settings.profile', { //come back to this later!!
       //   url: '/profile',
