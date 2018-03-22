@@ -43,31 +43,29 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_email">Email *</label>
-                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="form_phone">Phone</label>
-                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Please enter your phone">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
+                               
+                               
                                   <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_phone">Date</label>
-                                        <input id="form_phone" type="tel" name="date" class="form-control" placeholder="Please enter your phone" ng-model="date">
+                                        <input id="form_phone" type="tel" name="date" class="form-control" placeholder="mm-dd" ng-model="date">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
+
+
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_phone">Phone</label>
+                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="xxx-xxx-xxxx">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_phone">Price</label>
-                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="$$$" ng-model= "price">
+                                        <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="$" ng-model= "price">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -81,19 +79,28 @@
                                     </div>
                                 </div>
 
+                                  <div class="col-md-6">
+                                <input type="checkbox" id="roundtrip" name="roundtrip" >
+                                <label for="roundtrip">Roundtrip</label>
 
+                                <br>
+
+                                <input type="checkbox" id="stop" name="stop" >
+                                <label for="stop">Can stop along the way</label>
+                                </div>
+                             
 
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="form_message">Message *</label>
+                                        <label for="form_message">Message</label>
                                         <textarea id="form_message" name="message" class="form-control" placeholder="Message *" rows="4" required="required" data-error="Please,leave us a message."></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="submit" class="btn btn-success btn-send" ng-click = 'saveRide()' ui-sref="home">
+                                    <input type="submit" class="btn btn-success btn-send"  align="middle" ng-click = 'saveRide()' ui-sref="home">
                                 </div>
                             </div>
                             <div class="row">
