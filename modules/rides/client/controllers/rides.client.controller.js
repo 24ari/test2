@@ -34,7 +34,7 @@
         departure: $scope.departure,
         price: $scope.price,
         date: $scope.date,
-        spots: $scope.spotsAvailable
+        spotsAvailable: $scope.spotsAvailable
       }
         return ride;
     }
