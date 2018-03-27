@@ -13,3 +13,6 @@
     vm.rides = RidesService.query();
   }
 }());
+
+
+

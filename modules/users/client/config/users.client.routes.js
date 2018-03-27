@@ -29,6 +29,18 @@ angular.module('users').config(['$stateProvider',
       })
 
 
+    .state('rideinfo', { //come back to this later!!
+        url: '/rideinfo/:rideId',
+        templateUrl: 'modules/users/client/views/rideinfo.html',
+        controller: function($scope,$stateParams){
+          $scope.id = $stateParams.rideId;
+          console.log("ride id is " + $stateParams.rideId);
+      }
+
+      })
+
+
+
     .state('dashboard1', { //come back to this later!!
         url: '/dashboard1',
         templateUrl: 'modules/users/client/views/user-dashboard.client.view.html'
