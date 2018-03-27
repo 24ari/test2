@@ -5,11 +5,11 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
     $scope.user = Authentication.user;
 
 
-    console.log("we are inside editprofile");
+    console.log('we are inside editprofile');
 
     // Update a user profile
     //$scope.updateUserProfile = function (isValid) {
-      $scope.updateUserProfile = function () {
+    $scope.updateUserProfile = function () {
       $scope.success = $scope.error = null;
 
 
@@ -21,16 +21,16 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
 
       var user = new Users($scope.user);
 
-      console.log("we here");
+      console.log('we here');
 
       user.$update(function (response) {
         $scope.$broadcast('show-errors-reset', 'userForm');
 
         $scope.success = true;
-        console.log("we are successful!");
+        console.log('we are successful!');
         Authentication.user = response;
       }, function (response) {
-        console.log("error");
+        console.log('error');
         $scope.error = response.data.message;
       });
     };

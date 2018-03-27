@@ -37,11 +37,11 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       templateUrl: 'modules/rides/client/views/dashboard.client.view.html'
     })
 
-      .state('user-profile', {
+    .state('user-profile', {
       url: '/user-profile',
       templateUrl: 'modules/users/client/views/user-profile.client.view.html'
     })
-    
+
 
     .state('post-ride', {
       url: '/post-ride',
