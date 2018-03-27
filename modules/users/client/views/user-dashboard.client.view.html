@@ -104,7 +104,7 @@
 
     
 
-        <div class="row" ng-controller="RidesController" data-ng-init='listRides()'>
+        <div class="row" ng-controller="RiderequestsController" data-ng-init='listRequests()'>
 
           <div class="col-md-12">
             <div class="input-group" id="searchBar">
@@ -123,11 +123,11 @@
                   <th>Arrival</th>
                
                 </tr>
-                <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})">
-                  <td>{{ride.user.displayName}}</td>
-                  <td>{{ride.date}}</td>
-                  <td>{{ride.departure}}</td>
-                  <td>{{ride.arrival}}</td>
+                <tr ng-repeat="riderequest in riderequests | filter: query">
+                  <td>{{riderequest.user.displayName}}</td>
+                  <td>{{riderequest.date}}</td>
+                  <td>{{riderequest.departure}}</td>
+                  <td>{{riderequest.arrival}}</td>
                   <td><button type="button" class="btn btn-success">Accept</button></td>
                   <td><button type="button" class="btn btn-danger">Decline</button></td>
             

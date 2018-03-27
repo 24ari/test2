@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Riderequests</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="riderequest in vm.riderequests"
+       ui-sref="riderequests.view({ riderequestId: riderequest._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="riderequest.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="riderequest.user" ng-bind="riderequest.user.displayName"></span>
+        <span ng-if="!riderequest.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="riderequest.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.riderequests.$resolved && !vm.riderequests.length">
+    No Riderequests yet, why don't you <a ui-sref="riderequests.create">create one</a>?
+  </div>
+</section>

@@ -16,6 +16,9 @@ angular.module('users.admin.routes').config(['$stateProvider',
         controller: 'UserController'
       })
 
+
+       
+
       .state('admin.user', {
         url: '/users/:userId',
         templateUrl: 'modules/users/client/views/admin/view-user.client.view.html',
