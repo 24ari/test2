@@ -25,7 +25,7 @@
 
     var methods = {
       getAll: function() {
-          return $http.get('/api/rides');
+        return $http.get('/api/rides');
       },
 
       create: function(rides) {

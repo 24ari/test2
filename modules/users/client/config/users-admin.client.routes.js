@@ -11,10 +11,10 @@ angular.module('users.admin.routes').config(['$stateProvider',
       })
 
        .state('admin.profiles', {
-        url: '/profiles',
-        templateUrl: 'modules/users/client/views/user-profile.client.view.html',
-        controller: 'UserController'
-      })
+         url: '/profiles',
+         templateUrl: 'modules/users/client/views/user-profile.client.view.html',
+         controller: 'UserController'
+       })
 
 
        
