@@ -57,19 +57,19 @@
     .huge {
       font-size: 25px;
     }
-    
+
     .opaque {
       opacity: 0.75;
     }
-    
+
     .padder {
       padding: 15px;
     }
-    
+
     .huge {
       font-size: 25px;
     }
-    
+
     img.red-hover:hover {
       opacity: 0.95;
       border: 1px solid gray;
@@ -88,7 +88,7 @@
     .top-margin {
       margin-top: 50px;
     }
-    
+
     .top-margin-2 {
       margin-top: 25px;
     }
@@ -140,6 +140,12 @@
                   <th>Arrival</th>
                   <th>Spots Left </th>
                   <th>Price</th>
+<<<<<<< HEAD
+=======
+                  <th>Departure</th>
+                  <th>Roundtrip?</th>
+                  <th>Arrival</th>
+>>>>>>> MontrellWork
                 </tr>
                 <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})">
                   <td>{{ride.user.displayName}}</td>
@@ -159,15 +165,20 @@
 
     <button type="button" class="btn btn-primary" ng-click= "checkAut()" >Post Ride!</button>
           </div>
-          
+
         </div>
 
       </div>
     </div>
 
   </div>
+<<<<<<< HEAD
 
  
+=======
+<button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button>
+
+>>>>>>> MontrellWork
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 

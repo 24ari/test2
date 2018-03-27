@@ -22,7 +22,7 @@ exports.create = function(req, res) {
   ride.date = req.body.date;
   ride.price = req.body.price;
 
-  console.log("at least we got here");
+  console.log('at least we got here');
   ride.save(function(err) {
     if (err) {
       return res.status(400).send({
