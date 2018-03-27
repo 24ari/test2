@@ -130,7 +130,7 @@
             </div>
           </div>
 
-          <div class="col-md-12">
+          <div class="col-md-12"  ng-controller = "RiderequestsController">
             <div class="tableWrapper">
               <table class="table table-striped table-hover">
                 <tr>
@@ -147,15 +147,15 @@
                   <th>Arrival</th>
 >>>>>>> MontrellWork
                 </tr>
-                <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})">
+           <!--      <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})"> -->
+                      <tr ng-repeat="ride in rides | filter: query">
                   <td>{{ride.user.displayName}}</td>
                   <td>{{ride.date}}</td>
                   <td>{{ride.departure}}</td>
                   <td>{{ride.arrival}}</td>
                   <td>{{ride.spotsAvailable}}</td>
                   <td>{{ride.price}}</td>
-                  <td><button type="button" class="btn btn-primary" >Make Offer!</button></td>
-
+                  <td><button type="button" class="btn btn-primary" ui-sref = "rideinfo({rideId:ride._id})" >Make Offer!</button></td>
                   <td></td>
                 </tr>
               </table>

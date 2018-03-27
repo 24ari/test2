@@ -1,0 +1,64 @@
+</html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="modules/users/client/css/newcss.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body ng-controller = "RiderequestsController">
+
+      <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id)">
+      
+        <fieldset>
+          <legend><span class="number">1</span>About Driver</legend>
+          <label for="First name">Name:</label>
+          <input ng-model='user.firstName' type="text" id="name" name="firstName">
+          
+          <label for="Last Name">Name:</label>
+          <input ng-model='user.lastName' type="text" id="lastname" name="lastName">
+
+          <label for="mail">Email:</label>
+          <input ng-model='user.email' type="email" id="mail" name="user_email">
+
+          <label for="mail">School:</label>
+          <input ng-model='user.school' type="text" id="school" name="user_school">
+
+            <label for="mail">Phone #:</label>
+          <input ng-model='user.phone'  type= "text" id="phone" name="user_phone">
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Trip Info</legend>
+
+         <label for="name">Date:</label>
+          <input ng-model = 'ride.date' type="text" id="name" name="user_name">          
+
+        <label for="name">Departure:</label>
+          <input ng-model = 'ride.departure' type="text" id="name" name="user_name">
+          
+          <label for="name">Arrival:</label>
+          <input ng-model = 'ride.arrival' type="text" id="name" name="user_name">
+          
+          <label for="name">Cost:</label>
+          <input ng-model = 'ride.price' type="text" id="name" name="user_name">
+
+           <label for="bio">About trip:</label>
+          <textarea id="bio"  ng-model = 'ride.about' name="user_bio"></textarea>
+        
+
+        </fieldset>
+        
+
+     
+        <fieldset>
+  
+
+
+        <button type="submit" ng-click="saveRequest()">Make offer!</button>
+      </form>
+      
+    </body>
+</html>
