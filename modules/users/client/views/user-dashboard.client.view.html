@@ -98,8 +98,8 @@
     <div class="col-lg-10 top-margin-2">
       <div class="panel panel-default">
 
-        <div class="panel-heading">
-          <h3 class="panel-title"><i class=""></i> <b>Ride Requests</b></h3>
+        <div class="panel-heading" ng-controller="HeaderController">
+          <h3 class="panel-title"><i class=""></i> <b>{{authentication.user.displayName}}</b></h3>
         </div>
 
     
@@ -123,11 +123,18 @@
                   <th>Arrival</th>
                
                 </tr>
-                <tr ng-repeat="riderequest in riderequests | filter: query">
+               <!--  <tr ng-repeat="riderequest in riderequests | filter: {user:{displayName: 'John Doe'}}"> -->
+
+             <!--   <tr ng-repeat="riderequest in riderequests | filter: {driverId:authentication.user.id }:true"> -->
+
+
+               <tr ng-controller = "HeaderController" ng-repeat="riderequest in riderequests | filter: {driverId: elId } :true">
+
                   <td>{{riderequest.user.displayName}}</td>
                   <td>{{riderequest.date}}</td>
-                  <td>{{riderequest.departure}}</td>
+                   <td>{{riderequest.departure}}</td> 
                   <td>{{riderequest.arrival}}</td>
+                
                   <td><button type="button" class="btn btn-success">Accept</button></td>
                   <td><button type="button" class="btn btn-danger">Decline</button></td>
             

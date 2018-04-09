@@ -30,11 +30,12 @@ angular.module('users').config(['$stateProvider',
 
 
     .state('rideinfo', { //come back to this later!!
-        url: '/rideinfo/:rideId',
+        url: '/rideinfo/:rideId/:driverId',
         templateUrl: 'modules/users/client/views/rideinfo.html',
         controller: function($scope,$stateParams){
           $scope.id = $stateParams.rideId;
-          console.log("ride id is " + $stateParams.rideId);
+          $scope.driverId = $stateParams.driverId;
+          console.log("ride id is " + $stateParams.rideId + "driverId is" + $stateParams.driverId);
       }
 
       })
