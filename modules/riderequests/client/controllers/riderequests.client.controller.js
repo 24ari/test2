@@ -19,6 +19,8 @@
     // vm.save = save;
 
     $scope.ride ='';
+    $scope.user ='';
+    $scope.elId = vm.authentication.user._id;
 
 
 
@@ -79,12 +81,37 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
     };
 
 
+     $scope.getUser = function(driverId) {
+
+      //console.log("we here");
+      //var id = $stateParams.user;
+
+      //var id = '59f7f305e58b4010fc1307f4';
+
+      console.log("we are calling get User!");
+      console.log(driverId); //ISSUE: id is undefined
+      UsersService.read(driverId).then(function(response) {
+        $scope.user = response.data;
+        console.log($scope.user);
+        //console.log(response.data);
+        console.log("or are we here?");
+      }, function(error) {
+        $scope.error = 'Unable to retrieve user!\n' + error;
+        console.log("nope");
+      });
+    };
+
+
+
+
+
+
       $scope.saveRequest = function(){ //function to save ride
       var request = createRideRequest(); //passing ride info
 
       RiderequestsService.create(request).then(function(response){
           console.log('Success creating request!');
-          // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Ride offer posted!' });
+         // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
         },function(error){
           $scope.error = 'Unable to create request!\n' +error;
         

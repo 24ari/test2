@@ -126,13 +126,13 @@
                 </tr>
            <!--      <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})"> -->
                       <tr ng-repeat="ride in rides | filter: query">
-                  <td>{{ride.user.displayName}}</td>
+                  <td>{{riderequest.user.displayName}}</td>
                   <td>{{ride.date}}</td>
                   <td>{{ride.departure}}</td>
                   <td>{{ride.arrival}}</td>
                   <td>{{ride.spotsAvailable}}</td>
                   <td>{{ride.price}}</td>
-                  <td><button type="button" class="btn btn-primary" ui-sref = "rideinfo({rideId:ride._id})" >Make Offer!</button></td>
+                  <td><button type="button" class="btn btn-primary" ui-sref = "rideinfo({rideId:ride._id,driverId:ride.user._id})" >Make Offer!</button></td>
                   <td></td>
                 </tr>
               </table>
