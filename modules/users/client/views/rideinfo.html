@@ -10,7 +10,7 @@
     </head>
     <body ng-controller = "RiderequestsController">
 
-      <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id)">
+      <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id)"  ng-init = "getUser(driverId)">
       
         <fieldset>
           <legend><span class="number">1</span>About Driver</legend>
@@ -57,7 +57,7 @@
   
 
 
-        <button type="submit" ng-click="saveRequest()">Make offer!</button>
+        <button type="submit" ng-click="saveRequest()" ui-sref="home">Make offer!</button>
       </form>
       
     </body>
