@@ -19,12 +19,15 @@
     // vm.save = save;
 
     $scope.ride ='';
+    $scope.user ='';
+    $scope.elId = vm.authentication.user._id;
 
 
 
 console.log("the id for the signed id user is" + vm.authentication.user._id);
 
     $scope.requesterId ='';
+    //$scope.id = ''; //JUST ADDED THIS!!!!!!!!!!!!!!!
 
     console.log("calling riderequest controlla");
 
@@ -66,7 +69,7 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
       //var id = '59f7f305e58b4010fc1307f4';
 
       console.log("we are calling get ride!");
-      console.log(id); //ISSUE: id is undefined
+      console.log("the id for get ride is:" + id); //ISSUE: id is undefined
       RidesService.read(id).then(function(response) {
         $scope.ride = response.data;
         console.log($scope.ride);
@@ -79,12 +82,37 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
     };
 
 
+     $scope.getUser = function(driverId) {
+
+      //console.log("we here");
+      //var id = $stateParams.user;
+
+      //var id = '59f7f305e58b4010fc1307f4';
+
+      console.log("we are calling get User!");
+      console.log(driverId); //ISSUE: id is undefined
+      UsersService.read(driverId).then(function(response) {
+        $scope.user = response.data;
+        console.log($scope.user);
+        //console.log(response.data);
+        console.log("or are we here?");
+      }, function(error) {
+        $scope.error = 'Unable to retrieve user!\n' + error;
+        console.log("nope");
+      });
+    };
+
+
+
+
+
+
       $scope.saveRequest = function(){ //function to save ride
       var request = createRideRequest(); //passing ride info
 
       RiderequestsService.create(request).then(function(response){
           console.log('Success creating request!');
-          // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Ride offer posted!' });
+         // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
         },function(error){
           $scope.error = 'Unable to create request!\n' +error;
 
@@ -93,13 +121,51 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
 
 
+      $scope.removeRequest = function(id){ //function to delete riderequest
+      //var request = createRideRequest(); //passing ride info
 
-    // Remove existing Riderequest
-    function remove() {
-      if ($window.confirm('Are you sure you want to delete?')) {
-        vm.riderequest.$remove($state.go('riderequests.list'));
-      }
-    }
+      console.log("we are trying to delete request");
+      console.log("the id is:" + id);
+
+      RiderequestsService.delete(id).then(function(response){
+          console.log('Success deleting request!');
+          $state.reload();
+         // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
+        },function(error){
+          $scope.error = 'Unable to delete request!\n' +error;
+        
+        });
+    };
+
+
+    $scope.acceptRequest =function(){
+
+
+      console.log("we are trying to update request");
+      console.log("the id is:" + id);
+
+      
+      
+      RidesService.update(ride,id).then(function(response){
+          console.log('Success updating request!');
+
+
+         // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
+        },function(error){
+          $scope.error = 'Unable to delete request!\n' +error;
+        
+        });
+    };
+
+
+
+    // // Remove existing Riderequest
+    // $scope.remove = function () {
+    //   console.log("we are trying to remove");
+    //   if ($window.confirm('Are you sure you want to delete?')) {
+    //     vm.riderequest.$remove($state.go('riderequests.list'));
+    //   }
+    // }
 
     // Save Riderequest
     function save(isValid) {

@@ -25,10 +25,10 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/riderequests',
-      permissions: ['get', 'post']
+      permissions: ['get', 'post', 'delete']
     }, {
       resources: '/api/riderequests/:riderequestId',
-      permissions: ['get']
+      permissions: ['get','delete']
     }]
   }, {
     roles: ['guest'],
