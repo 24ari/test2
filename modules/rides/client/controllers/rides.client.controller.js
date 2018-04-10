@@ -9,7 +9,7 @@
   RidesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'RidesService'];
 
   function RidesController ($scope, $state, $window, Authentication, RidesService,ride) {
-     var vm = this;
+    var vm = this;
 
      vm.authentication = Authentication;
     // vm.ride = ride;
@@ -44,6 +44,8 @@
 
 
     $scope.checkAut = function(){
+
+      console.log("checking authentication");
       if (Authentication.user !== undefined && typeof Authentication.user === 'object') {
           $state.go('post-ride');
         } else {

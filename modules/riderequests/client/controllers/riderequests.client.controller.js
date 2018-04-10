@@ -27,6 +27,7 @@
 console.log("the id for the signed id user is" + vm.authentication.user._id);
 
     $scope.requesterId ='';
+    //$scope.id = ''; //JUST ADDED THIS!!!!!!!!!!!!!!!
 
     console.log("calling riderequest controlla");
 
@@ -128,6 +129,7 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
       RiderequestsService.delete(id).then(function(response){
           console.log('Success deleting request!');
+          $state.reload();
          // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
         },function(error){
           $scope.error = 'Unable to delete request!\n' +error;
