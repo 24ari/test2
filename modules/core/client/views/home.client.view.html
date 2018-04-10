@@ -126,7 +126,7 @@
                 </tr>
            <!--      <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})"> -->
                       <tr ng-repeat="ride in rides | filter: query">
-                  <td>{{riderequest.user.displayName}}</td>
+                  <td>{{ride.user.displayName}}</td>
                   <td>{{ride.date}}</td>
                   <td>{{ride.departure}}</td>
                   <td>{{ride.arrival}}</td>
