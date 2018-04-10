@@ -35,7 +35,6 @@
       var ride = {
         arrival: $scope.arrival,
         departure: $scope.departure,
-<<<<<<< HEAD
         price: $scope.price,
         date: $scope.date,
         spotsAvailable: $scope.spotsAvailable
@@ -54,39 +53,20 @@
             storePreviousState(toState, toParams);
           });
         }
-=======
-        price: $scope.price
-      };
-
-
-      return ride;
->>>>>>> MontrellWork
 
     }
 
 
     $scope.saveRide = function(){ //function to save ride
-<<<<<<< HEAD
-=======
-      console.log('we here bruh');
->>>>>>> MontrellWork
       var rides = createRide(); //passing ride info
 
       RidesService.create(rides).then(function(response){
-<<<<<<< HEAD
           console.log('Success creating ride!');
           // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Ride offer posted!' });
         },function(error){
           $scope.error = 'Unable to create ride!\n' +error;
-        
-        });
-=======
-        console.log('Success creating ride!');
-      },function(error){
-        $scope.error = 'Unable to create ride!\n' +error;
 
-      });
->>>>>>> MontrellWork
+        });
     };
 
 
