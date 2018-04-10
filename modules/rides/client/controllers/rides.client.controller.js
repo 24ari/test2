@@ -19,7 +19,7 @@
     // vm.save = save;
 
 
-    $scope.arrival = ''; 
+    $scope.arrival = '';
     $scope.departure = '';
     $scope.price = '';
     $scope.date = '';
@@ -65,7 +65,7 @@
           // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Ride offer posted!' });
         },function(error){
           $scope.error = 'Unable to create ride!\n' +error;
-        
+
         });
     };
 
