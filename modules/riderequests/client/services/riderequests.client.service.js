@@ -35,15 +35,15 @@
 
 
       read: function(riderequests){
-          return $http.get('/api/riderequests/' +  rideId); //IMPORTANT!!!
+          return $http.get('/api/riderequests/' +  riderequestId); //IMPORTANT!!!
       },
 
-      update: function(riderequests, rideId) { //change rideId
-        return $http.put('/api/riderequests/' + rideId, riderequests);
+      update: function(riderequests, rideresquestId) { //change rideId
+        return $http.put('/api/riderequests/' + riderequestId, riderequests);
       },
 
-      delete: function(rideId){
-        return $http.delete('/api/rides/' + rideId);
+      delete: function(riderequestId){
+        return $http.delete('/api/riderequests/' + riderequestId);
       }
 
      }; //closing methods

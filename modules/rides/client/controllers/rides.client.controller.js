@@ -9,9 +9,9 @@
   RidesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'RidesService'];
 
   function RidesController ($scope, $state, $window, Authentication, RidesService,ride) {
-    // var vm = this;
+     var vm = this;
 
-    // vm.authentication = Authentication;
+     vm.authentication = Authentication;
     // vm.ride = ride;
     // vm.error = null;
     // vm.form = {};
@@ -25,6 +25,9 @@
     $scope.date = '';
     $scope.spotsLeft ='';
     $scope.spotsAvailable ='';
+
+
+    $scope.elId2 = vm.authentication.user._id;
 
     console.log("inside ridesController");
 
