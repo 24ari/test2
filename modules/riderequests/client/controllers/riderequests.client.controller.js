@@ -47,9 +47,25 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
 
     function createRideRequest(){
+      var unId;
+      console.log("the rideId is:" + $scope.ride._id);
+      console.log("the authentication id is:" + Authentication.user._id);
+      var requesterId;
+
+      requesterId= Authentication.user._id;
+
+
+      console.log("the requesterid is" + requesterId);
+
+      unId = $scope.ride._id;
+
       var request = {
+
+
+          rideId : unId,
+          driverName: $scope.ride.driverName,
           driverId: $scope.ride.user._id,
-          requesterId: Authentication.user._id,
+          requesterId: requesterId,
           arrival: $scope.ride.arrival,
           departure: $scope.ride.departure,
           date: $scope.ride.date
@@ -138,24 +154,49 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
     };
 
 
-    $scope.acceptRequest =function(){
+    $scope.acceptRequest =function(rideId){
 
 
-      console.log("we are trying to update request");
-      console.log("the id is:" + id);
+      console.log("we are trying to update ride");
+      //console.log("the id is:" + id);
 
       
-      
-      RidesService.update(ride,id).then(function(response){
-          console.log('Success updating request!');
+    var elRide;
+    var elId;
+    var elRide2;
 
 
-         // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
-        },function(error){
-          $scope.error = 'Unable to delete request!\n' +error;
-        
-        });
-    };
+    RidesService.read(rideId).then(function(response) {
+        elRide = response.data;
+        console.log("lo que obtuvismo del ride es: " + elRide);
+        elRide.arrival = "Donde quieras papoide";
+        elId = elRide._id; 
+        console.log("y nuestro id es: " + elId);
+
+
+        $scope.updateRide(rideId);
+
+        //console.log(response.data);
+        console.log("or are we here?");
+      }, function(error) {
+        $scope.error = 'Unable to retrieve ride!\n' + error;
+        console.log("nope");
+      });
+
+};
+
+    
+  
+  $scope.updateRide = function(id) {
+
+
+
+
+  };
+
+
+
+
 
 
 

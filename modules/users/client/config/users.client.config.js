@@ -34,8 +34,14 @@ angular.module('users').run(['Menus',
   function (Menus) {
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
-      title: 'Dashboard',
+      title: 'Driver',
       state: 'dashboard1'
     });
+
+     Menus.addMenuItem('topbar', {
+      title: 'Passenger',
+      state: 'dashboard2'
+    });
+
   }
 ]);

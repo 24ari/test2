@@ -18,7 +18,7 @@
     // vm.remove = remove;
     // vm.save = save;
 
-
+    $scope.driverName = vm.authentication.user.displayName;
     $scope.arrival = ''; 
     $scope.departure = '';
     $scope.price = '';
@@ -33,6 +33,7 @@
 
     function createRide(){
       var ride = {
+        driverName: $scope.driverName,
         arrival: $scope.arrival,
         departure: $scope.departure,
         price: $scope.price,

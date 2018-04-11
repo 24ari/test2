@@ -17,6 +17,8 @@ exports.create = function(req, res) {
 
   console.log(req.body);
   riderequest.user = req.user;
+  riderequest.driverName = req.body.driverName;
+  riderequest.rideId = req.body.rideId;
   riderequest.requesterId = req.body.requesterId;
   riderequest.driverId = req.body.driverId;
   riderequest.arrival = req.body.arrival;
