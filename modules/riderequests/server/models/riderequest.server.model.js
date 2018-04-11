@@ -57,10 +57,6 @@ var RiderequestSchema = new Schema({
     type: Boolean
   },
 
-  requesterId:{
-    type:Boolean
-  },
-
   isCompleted:{
     type:Boolean
   },
