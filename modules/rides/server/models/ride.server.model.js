@@ -24,6 +24,11 @@ var RideSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
+
+  driverName: {
+    type: String
+  },
+
   date: {
     type:String
   },
@@ -36,16 +41,19 @@ var RideSchema = new Schema({
   arrival:{
     type:String
   },
-  spotsLeft:{
-    type:String
-  },
+  spotsLeft: Number,
+
   spotsAvailable:{
     type:String
   },
 
+  passengers: [],
+
   canPickUp:{
     type:Boolean
-  }
+  },
+
+
 });
 
 mongoose.model('Ride', RideSchema);
