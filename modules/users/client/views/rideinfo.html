@@ -11,54 +11,54 @@
     <body ng-controller = "RiderequestsController">
 
       <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id)"  ng-init = "getUser(driverId)">
-      
+
         <fieldset>
           <legend><span class="number">1</span>About Driver</legend>
-          <label for="First name">Name:</label>
-          <input ng-model='user.firstName' type="text" id="name" name="firstName">
-          
-          <label for="Last Name">Name:</label>
-          <input ng-model='user.lastName' type="text" id="lastname" name="lastName">
+          <label for="First name">First Name</label>
+          <input ng-model='user.firstName' type="text" id="name" name="firstName" placeholder="First Name" required>
 
-          <label for="mail">Email:</label>
-          <input ng-model='user.email' type="email" id="mail" name="user_email">
+          <label for="Last Name">Last Name</label>
+          <input ng-model='user.lastName' type="text" id="lastname" name="lastName" placeholder="Last Name" required>
 
-          <label for="mail">School:</label>
-          <input ng-model='user.school' type="text" id="school" name="user_school">
+          <label for="mail">Email <span class="glyphicon glyphicon-envelope"></span></label>
+          <input ng-model='user.email' type="email" id="mail" name="user_email" placeholder="Email" required>
 
-            <label for="mail">Phone #:</label>
-          <input ng-model='user.phone'  type= "text" id="phone" name="user_phone">
+          <label for="mail">School <span class="glyphicon glyphicon-education"></span></label>
+          <input ng-model='user.school' type="text" id="school" name="user_school" placeholder="University" required>
+
+            <label for="mail">Phone <span class="glyphicon glyphicon-phone"></span></label>
+          <input ng-model='user.phone'  type= "text" id="phone" name="user_phone" placeholder="xxx-xxx-xxxx">
         </fieldset>
-        
+
         <fieldset>
           <legend><span class="number">2</span>Trip Info</legend>
 
-         <label for="name">Date:</label>
-          <input ng-model = 'ride.date' type="text" id="name" name="user_name">          
+         <label for="name">Date <span class="glyphicon glyphicon-calendar"></span></label>
+          <input ng-model = 'ride.date' type="text" id="name" name="user_name" placeholder="mm-dd-yyyy">
 
-        <label for="name">Departure:</label>
-          <input ng-model = 'ride.departure' type="text" id="name" name="user_name">
-          
-          <label for="name">Arrival:</label>
-          <input ng-model = 'ride.arrival' type="text" id="name" name="user_name">
-          
-          <label for="name">Cost:</label>
-          <input ng-model = 'ride.price' type="text" id="name" name="user_name">
+        <label for="name">Departure <span class="glyphicon glyphicon-road"></span></label>
+          <input ng-model = 'ride.departure' type="text" id="name" name="user_name" placeholder="Departing from...">
 
-           <label for="bio">About trip:</label>
+          <label for="name">Arrival <span class="glyphicon glyphicon-home"></span></label>
+          <input ng-model = 'ride.arrival' type="text" id="name" name="user_name" placeholder="Traveling to...">
+
+          <label for="name">Cost <span class="glyphicon glyphicon-usd"></span></label>
+          <input ng-model = 'ride.price' type="text" id="name" name="user_name" placeholder="$">
+
+           <label for="bio">About trip</label>
           <textarea id="bio"  ng-model = 'ride.about' name="user_bio"></textarea>
-        
+
 
         </fieldset>
-        
 
-     
+
+
         <fieldset>
-  
+
 
 
         <button type="submit" ng-click="saveRequest()" ui-sref="home">Make offer!</button>
       </form>
-      
+
     </body>
 </html>
