@@ -25,6 +25,14 @@ var RiderequestSchema = new Schema({
     ref: 'User'
   },
 
+  driverName:{
+    type:String
+  },
+
+  rideId:{
+    type:String
+  },
+
   driverId:{
     type:String
   },
@@ -54,7 +62,7 @@ var RiderequestSchema = new Schema({
   },
 
   date:{
-    type:Boolean
+    type:String
   }
 
 });

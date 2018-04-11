@@ -48,6 +48,12 @@ angular.module('users').config(['$stateProvider',
       })
 
 
+    .state('dashboard2', {
+         url: '/dashboard2',
+        templateUrl: 'modules/users/client/views/user-dashboard-passenger.client.view.html'
+      })
+
+
       // .state('settings.profile', { //come back to this later!!
       //   url: '/profile',
       //   templateUrl: 'modules/users/client/views/settings/edit-profile.client.view.html'

@@ -17,10 +17,13 @@ exports.create = function(req, res) {
   //ride.user = req.user;
   console.log(req.body);
   ride.user = req.user; //not displaying user
+  ride.driverName = req.body.driverName;
   ride.arrival = req.body.arrival;
   ride.departure = req.body.departure;
   ride.date = req.body.date;
   ride.price = req.body.price;
+  ride.spotsLeft = req.body.spotsLeft;
+  ride.passengers = req.body.passengers;
 
   console.log('at least we got here');
   ride.save(function(err) {
