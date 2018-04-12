@@ -8,24 +8,13 @@
         <link href='custom.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
-
         <div class="container">
-
             <div class="row">
-
                 <div class="col-lg-8 col-lg-offset-2">
-
                     <h1>Post a Ride!</a></h1>
-
-
-
-
                     <form id="contact-form" role="form" ng-controller="RidesController">
-
                         <div class="messages"></div>
-
                         <div class="controls">
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -43,16 +32,13 @@
                                 </div>
                             </div>
                             <div class="row">
-
-
                                   <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="form_phone">Date <span class="glyphicon glyphicon-calendar"></span></label>
-                                        <input id="form_phone" type="date" name="date" class="form-control" placeholder="mm-dd-yyyy" ng-model="date">
+                                        <input id="form_phone" type="datetime-local" name="date" class="form-control" placeholder="mm-dd-yyyy" ng-model="date">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-
 
                                  <div class="col-md-6">
                                     <div class="form-group">
@@ -70,7 +56,6 @@
                                     </div>
                                 </div>
 
-
                                  <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_phone">Spots Available</label>
@@ -82,13 +67,10 @@
                                   <div class="col-md-6">
                                 <input type="checkbox" id="roundtrip" name="roundtrip" >
                                 <label for="roundtrip">Roundtrip</label>
-
                                 <br>
-
                                 <input type="checkbox" id="stop" name="stop" >
                                 <label for="stop">Can stop along the way</label>
                                 </div>
-
 
                             </div>
                             <div class="row">
@@ -96,7 +78,7 @@
                                     <div class="form-group">
                                         <label for="form_message">Message</label>
                                         <textarea id="form_message" name="message" class="form-control" placeholder="Message*" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-                                        <div class="help-block with-errors"></div>
+                                        <p class="help-block error-text" ng-message="required">Enter a message</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -109,13 +91,9 @@
                                 </div>
                             </div>
                         </div>
-
                     </form>
-
                 </div><!-- /.8 -->
-
             </div> <!-- /.row-->
-
         </div> <!-- /.container-->
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

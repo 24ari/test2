@@ -1,6 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
 .content {
   margin-top: 50px;
+
 }
+
 .undecorated-link:hover {
   text-decoration: none;
 }
@@ -34,4 +38,34 @@ a:hover .header-profile-image {
 }
 .has-error .help-inline.error-text {
   display: inline;
+}
+
+h1, h2, h3, a, p, body, section{
+  font-family: 'Nunito', sans-serif;
+  color: #000;
+}
+
+.btn-group button {
+    background-color: black; /* Green background */
+    border: 1px solid; /* Green border */
+    color: black; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: white;
 }
