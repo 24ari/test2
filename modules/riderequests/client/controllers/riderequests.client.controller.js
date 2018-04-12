@@ -189,7 +189,26 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
   
   $scope.updateRide = function(id) {
 
+    
 
+      RidesService.update(rideId).then(function(response) {
+        elRide = response.data;
+        console.log("lo que obtuvismo del ride es: " + elRide);
+        elRide.arrival = "Donde quieras papoide";
+        elId = elRide._id; 
+        console.log("y nuestro id es: " + elId);
+
+
+        $scope.updateRide(rideId);
+
+        //console.log(response.data);
+        console.log("or are we here?");
+      }, function(error) {
+        $scope.error = 'Unable to retrieve ride!\n' + error;
+        console.log("nope");
+      });
+
+};
 
 
   };
