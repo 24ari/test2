@@ -1,125 +1,13 @@
 <html>
 <title>Admin Dashboard</title>
 <meta charset="UTF-8">
-
-<head>
-  <!-- W3 CSS -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link href="../css/sb-admin.css" type="text/css" rel="stylesheet">
-  <link href="../css/main.css" type="text/css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/modules/core/client/css/core.css">
-  <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
-  <link href="../css/bootstrap-rtl.css" type="text/css" rel="stylesheet">
-  <link href="../css/sb-admin-rlt.css" type="text/css" rel="stylesheet">
-  <link href="../css/bootstrap-rtl.min.css" type="text/css" rel="stylesheet">
-  <!-- Morris Charts CSS -->
-  <link href="../css/plugins/morris.css" rel="stylesheet">
-  <!-- Custom Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-
-  <style>
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Roboto", sans-serif;
-    }
-
-    .w3-sidebar {
-      z-index: 3;
-      width: 250px;
-      top: 43px;
-      bottom: 0;
-      height: inherit;
-    }
-
-    u {
-      text-decoration: none;
-      /*border-bottom: 2px solid white;*/
-    }
-
-    .opaque {
-      opacity: 0.75;
-    }
-
-    .padder {
-      padding: 15px;
-    }
-
-    .huge {
-      font-size: 25px;
-    }
-
-    .opaque {
-      opacity: 0.75;
-    }
-
-    .padder {
-      padding: 15px;
-    }
-
-    .huge {
-      font-size: 25px;
-    }
-
-    img.red-hover:hover {
-      opacity: 0.95;
-      border: 1px solid gray;
-    }
-
-    img.green-hover:hover {
-      opacity: 0.7;
-      border: 1px solid gray;
-    }
-
-
-    .top-margin {
-      margin-top: 50px;
-    }
-
-    .top-margin {
-      margin-top: 50px;
-    }
-
-    .top-margin-2 {
-      margin-top: 25px;
-    }
-  </style>
-</head>
-
-<!---
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-<div class="w3-main"  style="margin-left:250px">
-  <div class="w3-row w3-padding-64">
-    <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Welcome, </h1>
-      <p>Here are your to-do's:</p>
-      <button ng-click = "getAllStudent()">Test Button</button>
-    </div>
-  </div>
--->
-
 <body>
-
-
-
-
     <div class="col-lg-10 top-margin-2">
       <div class="panel panel-default">
 
         <div class="panel-heading">
           <h3 class="panel-title"><i class=""></i> <b>Rides</b></h3>
         </div>
-
-
 
         <div class="row" ng-controller="RidesController" data-ng-init='listRides()'>
 
@@ -141,27 +29,22 @@
                   <th>Spots Left </th>
                   <th>Price</th>
                 </tr>
-           <!--      <tr ng-repeat="ride in rides | filter: query" ui-sref="driver-profile({ rideId:ride.user._id})"> -->
-                      <tr ng-repeat="ride in rides | filter: query">
+
+                  <tr ng-repeat="ride in rides | filter: query">
                   <td>{{ride.user.displayName}}</td>
                   <td>{{ride.date}}</td>
                   <td>{{ride.departure}}</td>
                   <td>{{ride.arrival}}</td>
                   <td>{{ride.spotsAvailable}}</td>
                   <td>{{ride.price}}</td>
-                  <td><button type="button" class="btn btn-primary" ui-sref = "rideinfo({rideId:ride._id,driverId:ride.user._id})" >Make Offer!</button></td>
+                  <td><button type="button" class="btn btn-primary" ui-sref = "rideinfo({rideId:ride._id,driverId:ride.user._id})" >View Ride</button></td>
                   <td></td>
                 </tr>
               </table>
-
             </div>
-    <!-- <button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button> -->
-
-    <button type="button" class="btn btn-primary" ng-click= "checkAut()" >Post Ride!</button>
+                <button type="button" class="btn btn-primary" ng-click= "checkAut()" >Post Ride!</button>
           </div>
-
         </div>
-
       </div>
     </div>
 
