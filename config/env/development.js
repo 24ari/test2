@@ -23,7 +23,7 @@ module.exports = {
       //  directoryPath: process.cwd(),
       //  fileName: 'access.log',
       //  rotatingLogs: { // for more info on rotating logs - https://github.com/holidayextras/file-stream-rotator#usage
-      //    active: false, // activate to use rotating logs 
+      //    active: false, // activate to use rotating logs
       //    fileName: 'access-%DATE%.log', // if rotating logs are active, this fileName setting will be used
       //    frequency: 'daily',
       //    verbose: false
@@ -36,8 +36,8 @@ module.exports = {
     title: 'University Drive Board'
   },
   facebook: {
-    clientID: process.env.FACEBOOK_ID || 'APP_ID',
-    clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+    clientID: process.env.FACEBOOK_ID || '1681965235231167',
+    clientSecret: process.env.FACEBOOK_SECRET || '21b7aaf02c7b2f7f5d3b2d05487493b5',
     callbackURL: '/api/auth/facebook/callback'
   },
   twitter: {
@@ -46,8 +46,8 @@ module.exports = {
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+    clientID: process.env.GOOGLE_ID || '679738538665-qr6rdfvqcclvm3b6qqnpsfr0uubntk9m.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'a4DxwBpCgwcOe2hZR0pgNLN3',
     callbackURL: '/api/auth/google/callback'
   },
   linkedin: {
