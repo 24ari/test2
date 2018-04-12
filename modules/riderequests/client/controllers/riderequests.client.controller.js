@@ -69,7 +69,7 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
           arrival: $scope.ride.arrival,
           departure: $scope.ride.departure,
           date: $scope.ride.date
-      }
+      };
         return request;
     }
 
@@ -131,7 +131,7 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
          // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
         },function(error){
           $scope.error = 'Unable to create request!\n' +error;
-        
+
         });
     };
 

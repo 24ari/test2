@@ -10,33 +10,33 @@
     <body ng-controller = "EditProfileController">
 
       <form name = "userForm"  ng-controller="EditProfileController" >
-      
+
         <fieldset>
           <legend><span class="number">1</span>Your basic info</legend>
-          <label for="First name">Name:</label>
+          <label for="First name">First Name</label>
           <input ng-model='user.firstName' type="text" id="name" name="firstName">
-          
-          <label for="Last Name">Name:</label>
+
+          <label for="Last Name">Last Name</label>
           <input ng-model='user.lastName' type="text" id="lastname" name="lastName">
 
-          <label for="mail">Email:</label>
+          <label for="mail">Email <span class="glyphicon glyphicon-envelope"></span> </label>
           <input ng-model='user.email' type="email" id="mail" name="user_email">
 
-          <label for="mail">School:</label>
+          <label for="mail">School <span class="glyphicon glyphicon-education"></span></label>
           <input ng-model='user.school' type="text" id="school" name="user_school">
 
-            <label for="mail">Phone #:</label>
-          <input ng-model='user.phone'  type= "text" id="phone" name="user_phone">
+            <label for="mail">Phone <span class="glyphicon glyphicon-phone"></span></label>
+          <input ng-model='user.phone'  type= "number" id="phone" name="user_phone"  placeholder="xxx-xxx-xxxx">
 
 
         </fieldset>
-        
+
         <fieldset>
           <legend><span class="number">2</span>Your profile</legend>
           <label for="bio">About you:</label>
           <textarea id="bio"  ng-model = 'user.aboutUser' name="user_bio"></textarea>
         </fieldset>
-        
+
 
       <fieldset>
           <legend><span class="number">3</span>Your vehicle</legend>
@@ -48,11 +48,11 @@
 
         </fieldset>
         <fieldset>
-  
+
 
 
         <button type="submit" ng-click="updateUserProfile()">Update</button>
       </form>
-      
+
     </body>
 </html>

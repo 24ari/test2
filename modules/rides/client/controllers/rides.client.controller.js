@@ -18,6 +18,7 @@
     // vm.remove = remove;
     // vm.save = save;
 
+
     $scope.driverName = vm.authentication.user.displayName;
     $scope.arrival = ''; 
     $scope.departure = '';
@@ -66,7 +67,7 @@
           // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Ride offer posted!' });
         },function(error){
           $scope.error = 'Unable to create ride!\n' +error;
-        
+
         });
     };
 

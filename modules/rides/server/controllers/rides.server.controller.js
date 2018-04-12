@@ -25,7 +25,7 @@ exports.create = function(req, res) {
   ride.spotsLeft = req.body.spotsLeft;
   ride.passengers = req.body.passengers;
 
-  console.log("at least we got here");
+  console.log('at least we got here');
   ride.save(function(err) {
     if (err) {
       return res.status(400).send({
