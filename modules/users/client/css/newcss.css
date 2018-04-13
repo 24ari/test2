@@ -62,14 +62,14 @@ select {
 button {
   padding: 19px 39px 18px 39px;
   color: #FFF;
-  background-color: #4bc970;
+  background-color: #02438A;
   font-size: 18px;
   text-align: center;
   font-style: normal;
   border-radius: 5px;
   width: 100%;
-  border: 1px solid #3ac162;
-  border-width: 1px 1px 3px;
+  border: 0px solid #02438A;
+  border-width: 0px 0px 0px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
 }
@@ -95,7 +95,7 @@ label.light {
 }
 
 .number {
-  background-color: #5fcf80;
+  background-color: #02438A;
   color: #fff;
   height: 30px;
   width: 30px;
@@ -114,4 +114,9 @@ label.light {
     max-width: 480px;
   }
 
+}
+
+.btn-success, .btn-primary, .btn-success{
+  background: #02438A !important;
+  border-color:  #02438A !important;
 }
