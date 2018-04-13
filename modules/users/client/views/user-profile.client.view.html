@@ -6,11 +6,9 @@
         <link rel="stylesheet" href="modules/users/client/css/newcss.css">
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body ng-controller = "EditProfileController">
-
+</head>
+  <body ng-controller = "EditProfileController">
       <form name = "userForm"  ng-controller="EditProfileController" >
-
         <fieldset>
           <legend><span class="number">1</span>Your basic info</legend>
           <label for="First name">First Name</label>
@@ -27,8 +25,6 @@
 
             <label for="mail">Phone <span class="glyphicon glyphicon-phone"></span></label>
           <input ng-model='user.phone'  type= "number" id="phone" name="user_phone"  placeholder="xxx-xxx-xxxx">
-
-
         </fieldset>
 
         <fieldset>
@@ -37,22 +33,16 @@
           <textarea id="bio"  ng-model = 'user.aboutUser' name="user_bio" placeholder="Description of yourself..."></textarea>
         </fieldset>
 
-
       <fieldset>
           <legend><span class="number">3</span>Your vehicle</legend>
           <label for="name">Make:</label>
           <input ng-model = 'user.carModel' type="text" id="name" name="user_name">
           <label for="name">Model:</label>
           <input ng-model = 'user.carMake' type="text" id="name" name="user_name">
+      </fieldset>
 
-
-        </fieldset>
         <fieldset>
-
-
-
         <button type="submit" ng-click="updateUserProfile()">Update</button>
       </form>
-
     </body>
 </html>
