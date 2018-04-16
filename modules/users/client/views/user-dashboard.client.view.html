@@ -17,13 +17,14 @@
           </div>
           <div class="col-md-12">
             <div class="tableWrapper">
-              <table class="table table-striped table-hover">
+              <table class="table table-striped table-hover table-bordered">
                 <tr>
                   <th>Requester</th>
                   <th>Date</th>
                   <th>Departure</th>
                   <th>Arrival</th>
-
+                  <th></th>
+                  <th></th>
                 </tr>
                <tr ng-controller = "HeaderController" ng-repeat="riderequest in riderequests | filter: {driverId: elId } :true">
 
@@ -32,9 +33,8 @@
                   <td>{{riderequest.departure}}</td>
                   <td>{{riderequest.arrival}}</td>
 
-                  <td><button type="button" class="btn btn-success" ng-click = "acceptRequest(riderequest.rideId)">Accept</button></td>
-                  <td><button type="button" class="btn btn-danger" ng-click = "removeRequest(riderequest._id)">Decline</button></td>
-                  <td></td>
+                  <td><button type="button" class="btn btn-success" onclick="return confirm('Are you sure?')" ng-click = "acceptRequest(riderequest.rideId)">Accept</button></td>
+                  <td><button type="button" class="btn btn-danger" onclick="return confirm('Are you sure?')" ng-click = "removeRequest(riderequest._id)">Decline</button></td>
                 </tr>
               </table>
             </div>
@@ -57,29 +57,23 @@
           </div>
           <div class="col-md-12">
             <div class="tableWrapper">
-              <table class="table table-striped table-hover">
+              <table class="table table-striped table-hover table-bordered">
                 <tr>
                   <th>Date</th>
                   <th>Departure</th>
                   <th>Arrival</th>
                   <th>Spots Left</th>
+                  <th></th>
                 </tr>
-               <!--  <tr ng-repeat="riderequest in riderequests | filter: {user:{displayName: 'John Doe'}}"> -->
-
-             <!--   <tr ng-repeat="riderequest in riderequests | filter: {driverId:authentication.user.id }:true"> -->
                <tr ng-controller = "HeaderController" ng-repeat="ride in rides | filter:  {user: { _id : elId2}} :true">
                    <td>{{ride.date}}</td>
-                  <td>{{ride.departure}}</td>
-                  <td>{{ride.arrival}}</td>
+                   <td>{{ride.departure}}</td>
+                   <td>{{ride.arrival}}</td>
                    <td>{{ride.spotsAvailable}}</td>
                   <td><button type="button" class="btn btn-success">Mark as Completed</button></td>
-
-                  <td></td>
                 </tr>
               </table>
-
             </div>
-    <!-- <button type="button"  ui-sref= "post-ride" class="btn btn-primary">Post Ride</button> -->
           </div>
         </div>
       </div>

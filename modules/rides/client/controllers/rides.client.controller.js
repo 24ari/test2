@@ -20,7 +20,7 @@
 
 
     $scope.driverName = vm.authentication.user.displayName;
-    $scope.arrival = ''; 
+    $scope.arrival = '';
     $scope.departure = '';
     $scope.price = '';
     $scope.date = '';
@@ -40,7 +40,7 @@
         price: $scope.price,
         date: $scope.date,
         spotsAvailable: $scope.spotsAvailable
-      }
+      };
         return ride;
     }
 
@@ -56,7 +56,7 @@
           });
         }
 
-    }
+    };
 
 
     $scope.saveRide = function(){ //function to save ride

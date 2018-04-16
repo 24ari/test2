@@ -34,8 +34,8 @@
                             <div class="row">
                                   <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="form_phone">Date <span class="glyphicon glyphicon-calendar"></span></label>
-                                        <input id="form_phone" type="datetime-local" name="date" class="form-control" placeholder="mm-dd-yyyy" ng-model="date">
+                                        <label for="form_date">Date <span class="glyphicon glyphicon-calendar"></span></label>
+                                        <input id="form_date" type="datetime-local" name="date" class="form-control" placeholder="mm-dd-yyyy" ng-model="date">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -43,23 +43,23 @@
                                  <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_phone">Phone <span class="glyphicon glyphicon-phone"></span></label>
-                                        <input id="form_phone" type="number" name="phone" class="form-control" placeholder="xxx-xxx-xxxx">
+                                        <input id="form_phone" type="number" min="0" name="phone" class="form-control" placeholder="xxx-xxx-xxxx">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_phone">Price <span class="glyphicon glyphicon-usd"></span></label>
-                                        <input id="form_phone" type="number" name="phone" class="form-control" placeholder="$" ng-model= "price">
+                                        <label for="form_price">Price <span class="glyphicon glyphicon-usd"></span></label>
+                                        <input id="form_price" type="number" min="0" name="phone" class="form-control" placeholder="$" ng-model= "price">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
 
                                  <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_phone">Spots Available</label>
-                                        <input id="form_phone" type="number" name="spots" class="form-control" placeholder="# of spots" ng-model= "spotsAvailable">
+                                        <label for="form_spots">Spots Available</label>
+                                        <input id="form_spots" type="number" min="0" name="spots" class="form-control" placeholder="# of spots" ng-model= "spotsAvailable">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                                     <div class="form-group">
                                         <label for="form_message">Message</label>
                                         <textarea id="form_message" name="message" class="form-control" placeholder="Message*" rows="4" required="required" data-error="Please,leave us a message."></textarea>
-                                        <p class="help-block error-text" ng-message="required">Enter a message</p>
+                                        <p class="help-block error-text" ng-messages="required">Enter a message</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
