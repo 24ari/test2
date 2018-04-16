@@ -69,7 +69,7 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
           arrival: $scope.ride.arrival,
           departure: $scope.ride.departure,
           date: $scope.ride.date
-      };
+      }
         return request;
     }
 
@@ -131,7 +131,7 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
          // Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Request sent!' });
         },function(error){
           $scope.error = 'Unable to create request!\n' +error;
-
+        
         });
     };
 
@@ -186,13 +186,61 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 };
 
     
+function saveRide(){
+
+  console.log("the scope is" + $scope.ride.arrival);
+
+
+  var decreaseSpot;
+  var spotsAva;
+
+  spotsAva = $scope.ride.spotsAvailable;
+  console.log(" spots available are: " + spotsAva);
+
+  decreaseSpot = spotsAva - 1;
+
+  console.log("spot number is" + decreaseSpot);
+
+    var ride = {
+        arrival: $scope.ride.arrival,
+        spotsAvailable: decreaseSpot
+    }
+
+return ride;
+
+};
+
+
   
   $scope.updateRide = function(id) {
 
 
+      var ride = saveRide();
+
+      RidesService.update(ride,id).then(function(response) {
+        //elRide = response.data;
+        //console.log("lo que obtuvismo del ride es: " + elRide);
+        //elRide.arrival = "Donde quieras papoide";
+        //elId = elRide._id; 
+        //console.log("y nuestro id es: " + elId);
 
 
-  };
+        //$scope.updateRide(rideId);
+
+        //console.log(response.data);
+        alert('Save successful!');
+        console.log("Succes updating ride!");
+      }, function(error) {
+        $scope.error = 'Unable to retrieve ride!\n' + error;
+        console.log("nope");
+      });
+
+};
+
+
+
+
+
 
 
 
