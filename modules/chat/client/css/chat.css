@@ -13,3 +13,9 @@
   width: 28px;
   border-radius: 50%;
 }
+
+
+.btn-success, .btn-primary, .btn-success{
+  background: #02438A !important;
+  border-color:  #02438A !important;
+}
