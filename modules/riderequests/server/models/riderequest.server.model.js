@@ -50,7 +50,8 @@ var RiderequestSchema = new Schema({
   },
 
   isAccepted:{
-    type: Boolean
+    type: Boolean,
+    default:false
   },
 
   isDeclined:{

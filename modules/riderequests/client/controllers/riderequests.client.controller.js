@@ -189,10 +189,21 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 function saveRide(){
 
   console.log("the scope is" + $scope.ride.arrival);
-  
+
+
+  var decreaseSpot;
+  var spotsAva;
+
+  spotsAva = $scope.ride.spotsAvailable;
+  console.log(" spots available are: " + spotsAva);
+
+  decreaseSpot = spotsAva - 1;
+
+  console.log("spot number is" + decreaseSpot);
+
     var ride = {
         arrival: $scope.ride.arrival,
-        spotsAvailable: "1000"
+        spotsAvailable: decreaseSpot
     }
 
 return ride;
@@ -217,6 +228,7 @@ return ride;
         //$scope.updateRide(rideId);
 
         //console.log(response.data);
+        alert('Save successful!');
         console.log("Succes updating ride!");
       }, function(error) {
         $scope.error = 'Unable to retrieve ride!\n' + error;
