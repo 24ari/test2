@@ -2,13 +2,13 @@
 <title>Admin Dashboard</title>
 <meta charset="UTF-8">
 <body>
-    <div class="col-lg-10 top-margin-2">
+    <div style="padding-top:20px;" class="col-lg-10 top-margin-2">
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title"><i class=""></i> <b>Rides</b></h3>
         </div>
-        <div class="row" ng-controller="RidesController" data-ng-init='listRides()'>
 
+        <div class="row" ng-controller="RidesController" data-ng-init='listRides()'>
           <div class="col-md-12">
             <div class="input-group" id="searchBar">
               <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -46,7 +46,23 @@
       </div>
     </div>
 
-  </div>
+  <div class="col-lg-10 top-margin-2" style="padding-top:30px;">
+    <div class="panel panel-default">
+      <div class="panel-heading" style="text-align:center;"><h3><b>Instructions</b></h3></div>
+      <div class="panel-body">
+        <ul style="list-style-type:disc">
+          <u><b>Driver</b></u>
+           <li>To post a ride: Click on "Post Ride!" in the "Rides" table, enter your information correctly on the next screen, and click submit.</li>
+           <li>To view rides you have listed: Click on the "Driver" tab in the header and look at the "My Rides Offered" table.</li>
+           <li>To view your rides that have been requested by riders: Click on the "Driver" tab in the header and look at the "Rides Requests" table.</li>
+           <br></br>
+          <u><b>Rider</b></u>
+           <li>To request a ride: click "View Ride" in the "Rides" table, review trip information, and click "Accept Ride!"</li>
+           <li>To view rides you "requested": Click on the "Passenger" tab in the header and look at the "Rides Requested" table. </li>
+        </ul>
+      </div>
+    </div>
+
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
