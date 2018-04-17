@@ -34,12 +34,12 @@
       },
 
 
-      read: function(riderequests){
-          return $http.get('/api/riderequests/' +  riderequestId); //IMPORTANT!!!
+      read: function(riderequestsId){
+          return $http.get('/api/riderequests/' +  riderequestsId); //IMPORTANT!!!
       },
 
-      update: function(riderequests, rideresquestId) { //change rideId
-        return $http.put('/api/riderequests/' + riderequestId, riderequests);
+      update: function(riderequests, riderequestsId) { //change rideId
+        return $http.put('/api/riderequests/' + riderequestsId, riderequests);
       },
 
       delete: function(riderequestId){

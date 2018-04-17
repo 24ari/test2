@@ -53,7 +53,7 @@ var RideSchema = new Schema({
     type:Boolean
   },
 
-
+  
 });
 
 mongoose.model('Ride', RideSchema);

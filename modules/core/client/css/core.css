@@ -1,12 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 
-.wrapper {
-
+.content {
+  margin-top: 50px;
   background: url("http://hdwpro.com/wp-content/uploads/2017/03/Art-Background-Image.png");
-
   background-size: auto;
   min-height: 100vh;
-
 }
 
 .undecorated-link:hover {

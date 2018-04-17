@@ -90,12 +90,13 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
         $scope.ride = response.data;
         console.log($scope.ride);
         //console.log(response.data);
-        console.log("or are we here?");
+        console.log("or are we here calling old function?");
       }, function(error) {
         $scope.error = 'Unable to retrieve ride!\n' + error;
         console.log("nope");
       });
     };
+
 
 
      $scope.getUser = function(driverId) {
@@ -154,86 +155,285 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
     };
 
 
-    $scope.acceptRequest =function(rideId){
+
+// // old ACCEPTREQUEST FUNCTION
+//     $scope.acceptRequest =function(rideId){
 
 
-      console.log("we are trying to update ride");
-      //console.log("the id is:" + id);
+//       console.log("we are trying to update ride");
+//       //console.log("the id is:" + id);
 
       
-    var elRide;
-    var elId;
-    var elRide2;
+//     var elRide;
+//     var elId;
+//     var elRide2;
 
 
-    RidesService.read(rideId).then(function(response) {
-        elRide = response.data;
-        console.log("lo que obtuvismo del ride es: " + elRide);
-        elRide.arrival = "Donde quieras papoide";
-        elId = elRide._id; 
-        console.log("y nuestro id es: " + elId);
+//     RidesService.read(rideId).then(function(response) {
+//         elRide = response.data;
+//         console.log("lo que obtuvismo del ride es: " + elRide);
+//         elRide.arrival = "Donde quieras papoide";
+//         elId = elRide._id; 
+//         console.log("y nuestro id es: " + elId);
 
 
-        $scope.updateRide(rideId);
+//         $scope.updateRide(rideId);
 
-        //console.log(response.data);
-        console.log("or are we here?");
-      }, function(error) {
-        $scope.error = 'Unable to retrieve ride!\n' + error;
-        console.log("nope");
-      });
+//         //console.log(response.data);
+//         console.log("or are we here?");
+//       }, function(error) {
+//         $scope.error = 'Unable to retrieve ride!\n' + error;
+//         console.log("nope");
+//       });
 
-};
+// };
+
+
 
     
-function saveRide(){
+function saveRide(id){
 
-  console.log("the scope is" + $scope.ride.arrival);
+return new Promise(function(resolve,reject){
+    console.log("Inside saveRide promise");
+    // var ride = getRide1(id);
+    // console.log("the ride we are reading is:" );
+    // //WE ARE NOT RETURNING RIDE IN TIME
+    // console.log(ride);
+    // resolve(ride);   
+    // console.log("Or the ride is>>>");
+    // console.log(ride);
 
+    var ride;
+
+    console.log("the id we are trying to pass is:" + id);
+
+
+    ride = getRide1(id);
+    
+     console.log("the ride is:::::");
+     
+    //ride = getRide1(id);
+
+     resolve(ride);
+     console.log("Getting out of readinG rIDE in save ride of promise 2");
+     console.log(ride);
+
+}).then(function(result){
+
+  console.log("the scope arrival is" + $scope.ride.arrival);
 
   var decreaseSpot;
   var spotsAva;
 
   spotsAva = $scope.ride.spotsAvailable;
+  console.log("the scope shows:" + $scope.ride.spotsAvailable);
   console.log(" spots available are: " + spotsAva);
 
   decreaseSpot = spotsAva - 1;
 
   console.log("spot number is" + decreaseSpot);
 
+  var passengers = $scope.ride.passengers;
+  passengers.push("bo");
+
     var ride = {
         arrival: $scope.ride.arrival,
-        spotsAvailable: decreaseSpot
+        spotsAvailable: decreaseSpot,
+        price: $scope.ride.arrival,
+        passengers: passengers
     }
+  console.log(" the ride we are returning form saveRide in promise 2is:");
+  console.log(ride);
 
 return ride;
+// });   
+  });
 
 };
+
+
+ function getRide1(id) {
+
+  console.log("inside new function for getting ride");
+
+      //console.log("we here");
+      //var id = $stateParams.user;
+
+      //var id = '59f7f305e58b4010fc1307f4';
+
+    var ride;
+      
+    return new Promise(function(resolve,reject){
+
+      console.log("the id for get ride is:" + id); //ISSUE: id is undefined
+
+              RidesService.read(id).then(function(response) {
+                $scope.ride = response.data;
+                ride = response.data;
+                console.log("the ride we are about to pass to scope is:");
+                console.log($scope.ride);
+                //console.log(response.data);
+                resolve(ride);
+
+
+                console.log("or are we here dasdadadasd?");
+              }, function(error) {
+                $scope.error = 'Unable to retrieve ride!\n' + error;
+                console.log("nope");
+              });  
+  
+          //resolve(ride);
+  }).then(function(updatedRide){
+      return updatedRide;
+   });
+  };
 
 
   
-  $scope.updateRide = function(id) {
+  $scope.updateRide = function(rideId,requestId) { //pass requester info here!!
+
+    return new Promise(function(resolve,reject){
+          console.log("we are inside promise 1");
+          
+          var ride = getRide1(rideId);
+          //comes back here too fast
+          console.log("the ride we are returning from promise 1 is:", ride);
+          console.log(ride);
+          
+          resolve(ride);
+
+    }).then(function(elRid){
+      console.log("we are inside promise 2")
+        
+        return new Promise(function(resolve,reject){
+            var upRide = saveRide(rideId);
+            console.log("retrieving upride",upRide);
+            resolve(upRide); //wth
+    });
+
+      }).then(function(newUpRide){
+            console.log("inside promise 3");
+            
+            RidesService.update(newUpRide,rideId).then(function(response) {
+                console.log("Success updating ride!");
+                console.log(response);
+                //$window.location.reload();
+            });
+
+        }); 
+    };
 
 
-      var ride = saveRide();
 
-      RidesService.update(ride,id).then(function(response) {
-        //elRide = response.data;
-        //console.log("lo que obtuvismo del ride es: " + elRide);
-        //elRide.arrival = "Donde quieras papoide";
-        //elId = elRide._id; 
-        //console.log("y nuestro id es: " + elId);
+    $scope.updateRequest = function(requestId){
+
+        return new Promise(function(resolve,reject){
+          console.log("we are inside promise request 1");
+          
+          var request = getRequest1(requestId);
+          //comes back here too fast
+          console.log("the ride we are returning from promise request 1 is:", request);
+          console.log(request);
+          
+          resolve(request);
+
+    }).then(function(elReq){
+      console.log("we are inside promise request 2")
+        
+        return new Promise(function(resolve,reject){
+            var upReq = saveRequest(requestId);
+            console.log("retrieing upride",upReq);
+            resolve(upReq);
+    });
+
+      }).then(function(newUpRequest){
+            console.log("inside promise requesst 3");
+            
+            RiderequestsService.update(newUpRequest,requestId).then(function(response) {
+                console.log("Success updating request!");
+                console.log(response);
+                //$window.location.reload();
+            });
+        }); 
+    };
 
 
-        //$scope.updateRide(rideId);
 
-        //console.log(response.data);
-        alert('Save successful!');
-        console.log("Succes updating ride!");
-      }, function(error) {
-        $scope.error = 'Unable to retrieve ride!\n' + error;
-        console.log("nope");
-      });
+ function getRequest1(id) {
+
+  console.log("inside new function for getting request");
+
+      //console.log("we here");
+      //var id = $stateParams.user;
+
+      //var id = '59f7f305e58b4010fc1307f4';
+
+    var request;
+      
+    return new Promise(function(resolve,reject){
+
+      console.log("the id for get request is:" + id); //ISSUE: id is undefined
+
+              RiderequestsService.read(id).then(function(response) {
+                $scope.request = response.data;
+                request = response.data;
+                console.log("the request we are about to pass to scope is:");
+                console.log($scope.request);
+                //console.log(response.data);
+                resolve(request);
+
+
+                console.log("or are we here dasdadadasd?");
+              }, function(error) {
+                $scope.error = 'Unable to retrieve request!\n' + error;
+                console.log("nope");
+              });  
+  
+          //resolve(ride);
+  }).then(function(updatedRequest){
+      return updatedRequest;
+   });
+  };
+
+
+  
+
+
+    
+function saveRequest(id){
+
+return new Promise(function(resolve,reject){
+    console.log("Inside saveRequest promise"); 
+    var request;
+
+    console.log("the id we are trying to pass is:" + id);
+
+    request = getRequest1(id);
+    
+     console.log("the request is:::::");
+     
+    //ride = getRide1(id);
+
+     resolve(request);
+     console.log("Getting out of readinG request in save request of promise 2");
+     console.log(request);
+
+}).then(function(result){
+
+  console.log("the scope arrival is" + $scope.request.arrival);
+
+
+    var request = {
+        status : "accepted",
+        status : "accepted"
+    }
+
+  console.log(" the request we are returning form saveRide in promise 2is:");
+  console.log(request);
+
+return request;
+// });   
+  });
 
 };
 
@@ -246,6 +446,31 @@ return ride;
 
 
 
+
+
+//       var ride = saveRide(id);
+
+//       RidesService.update(ride,id).then(function(response) {
+//         //elRide = response.data;
+//         //console.log("lo que obtuvismo del ride es: " + elRide);
+//         //elRide.arrival = "Donde quieras papoide";
+//         //elId = elRide._id; 
+//         //console.log("y nuestro id es: " + elId);
+
+
+//         //$scope.updateRide(rideId);
+
+//         //console.log(response.data);
+        
+//         //alert('Save successful!'); UNCOMMENT LATER!
+
+//         console.log("Succes updating ride!");
+//       }, function(error) {
+//         $scope.error = 'Unable to retrieve ride!\n' + error;
+//         console.log("nope");
+//       });
+
+// };
 
 
     // // Remove existing Riderequest
