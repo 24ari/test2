@@ -25,6 +25,11 @@ var RiderequestSchema = new Schema({
     ref: 'User'
   },
 
+  status:{
+    type:String,
+    default: "pending"
+  },
+
   driverName:{
     type:String
   },

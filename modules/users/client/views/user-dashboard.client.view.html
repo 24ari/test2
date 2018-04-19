@@ -33,7 +33,12 @@
                   <td>{{riderequest.departure}}</td>
                   <td>{{riderequest.arrival}}</td>
 
-                  <td><button type="button" class="btn btn-success" onclick="return confirm('Are you sure?')" ng-click = "acceptRequest(riderequest.rideId)">Accept</button></td>
+                  <td><button type="button" class="btn btn-success"  ng-click = "updateRide(riderequest.rideId,riderequest._id);updateRequest(riderequest._id)">Accept</button></td>
+
+              
+
+
+
                   <td><button type="button" class="btn btn-danger" onclick="return confirm('Are you sure?')" ng-click = "removeRequest(riderequest._id)">Decline</button></td>
                 </tr>
               </table>

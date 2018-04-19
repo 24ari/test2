@@ -6,9 +6,9 @@
     .module('rides')
     .controller('RidesController', RidesController);
 
-  RidesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'RidesService'];
+  RidesController.$inject = ['$scope', '$state', '$window', 'Authentication','UsersService','RidesService'];
 
-  function RidesController ($scope, $state, $window, Authentication, RidesService,ride) {
+  function RidesController ($scope, $state, $window, Authentication, UsersService,RidesService) {
     var vm = this;
 
      vm.authentication = Authentication;
@@ -26,6 +26,11 @@
     $scope.date = '';
     $scope.spotsLeft ='';
     $scope.spotsAvailable ='';
+
+
+
+
+
 
 
     $scope.elId2 = vm.authentication.user._id;
@@ -57,6 +62,22 @@
         }
 
     };
+
+
+    $scope.findUser = function(driverId){
+      console.log("WE ARE CALLING FINDUSER");
+
+      UsersService.read(driverId).then(function(response){
+          console.log('Success reading user');
+          $scope.user1 = response.data;
+          console.log($scope.user1);
+          console.log("our scope is:" + $scope.user1.firstName);
+      },function(error){
+          console.log("unable to find user#######");
+      });
+    };
+
+
 
 
     $scope.saveRide = function(){ //function to save ride
