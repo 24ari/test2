@@ -1,37 +1,37 @@
-'use strict';
+//'use strict';
 
-// Users service used for communicating with the users REST endpoint
-angular.module('users').factory('Users', ['$resource',
-  function ($resource) {
-    return $resource('api/users', {}, {
-      update: {
-        method: 'PUT'
-      }
-    });
-  }
-]);
+// // Users service used for communicating with the users REST endpoint
+// angular.module('users').factory('Users', ['$resource',
+//   function ($resource) {
+//     return $resource('api/users', {}, {
+//       update: {
+//         method: 'PUT'
+//       }
+//     });
+//   }
+// ]);
 
-//TODO this should be Users service
-angular.module('users.admin').factory('Admin', ['$resource',
-  function ($resource) {
-    return $resource('api/users/:userId', {
-      userId: '@_id'
-    }, {
-      update: {
-        method: 'PUT'
-      }
-    });
-  }
-]);
+// //TODO this should be Users service
+// angular.module('users.admin').factory('Admin', ['$resource',
+//   function ($resource) {
+//     return $resource('api/users/:userId', {
+//       userId: '@_id'
+//     }, {
+//       update: {
+//         method: 'PUT'
+//       }
+//     });
+//   }
+// ]);
 
 
 // // Rides service used to communicate Rides REST endpoints
-// (function () {
-//   'use strict';
+(function () {
+  'use strict';
 
-//   angular
-//     .module('users')
-//     .factory('Users', UsersService);
+  angular
+    .module('users')
+    .factory('UsersService', UsersService);
 
 //   // RidesService.$inject = ['$resource'];
 
@@ -45,38 +45,38 @@ angular.module('users.admin').factory('Admin', ['$resource',
 //   //   });
 //   // }
 
-//   UsersService.$inject = ['$http'];
+  UsersService.$inject = ['$http'];
 
-//   function UsersService($http){
-
-
-//     var methods = {
-//       getAll: function() {
-//           return $http.get('/api/users');
-//       },
-
-//       create: function(users) {
-//           return $http.post('/api/users', users);
-//       },
+  function UsersService($http){
 
 
-//       read: function(userId){
-//           return $http.get('/api/users/' +  userId);
-//       },
+    var methods = {
+      getAll: function() {
+          return $http.get('/api/users');
+      },
 
-//       update: function(user, userId) {
-//         return $http.put('/api/users/' + userId, user);
-//       },
+      create: function(users) {
+          return $http.post('/api/users', users);
+      },
 
-//       delete: function(userId){
-//         return $http.delete('/api/users/' + userId);
-//       }
 
-//      }; //closing methods
+      read: function(userId){
+          return $http.get('/api/users/' +  userId);
+      },
 
-//        return methods;
-//     }
+      update: function(user, userId) {
+        return $http.put('/api/users/' + userId, user);
+      },
 
-// }());
+      delete: function(userId){
+        return $http.delete('/api/users/' + userId);
+      }
+
+     }; //closing methods
+
+       return methods;
+    }
+
+}());
 
 

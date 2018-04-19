@@ -9,26 +9,27 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body ng-controller = "RiderequestsController">
+      <div ng-controller = "RidesController">
 
-      <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id)"  ng-init = "getUser(driverId)">
+         <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id);findUser(driverId)">
 
         <fieldset>
           <legend><span class="number">1</span>About Driver</legend>
 
           <label for="First name">First Name</label>
-          <input ng-model='user.firstName' type="text" id="name" name="firstName" placeholder="First Name" required>
+          <input ng-model='user1.firstName' type="text" id="name" name="firstName" placeholder="First Name" required>
 
           <label for="Last Name">Last Name</label>
-          <input ng-model='user.lastName' type="text" id="lastname" name="lastName" placeholder="Last Name" required>
+          <input ng-model='user1.lastName' type="text" id="lastname" name="lastName" placeholder="Last Name" required>
 
           <label for="mail">Email <span class="glyphicon glyphicon-envelope"></span></label>
-          <input ng-model='user.email' type="email" id="mail" name="user_email" placeholder="Email" required>
+          <input ng-model='user1.email' type="email" id="mail" name="user_email" placeholder="Email" required>
 
           <label for="mail">School <span class="glyphicon glyphicon-education"></span></label>
-          <input ng-model='user.school' type="text" id="school" name="user_school" placeholder="University" required>
+          <input ng-model='user1.school' type="text" id="school" name="user_school" placeholder="University" required>
 
             <label for="mail">Phone <span class="glyphicon glyphicon-phone"></span></label>
-          <input ng-model='user.phone'  type= "text" id="phone" name="user_phone" placeholder="xxx-xxx-xxxx">
+          <input ng-model='user1.phone'  type= "text" id="phone" name="user_phone" placeholder="xxx-xxx-xxxx">
         </fieldset>
 
         <fieldset>
@@ -60,6 +61,6 @@
 
         <button type="submit" ng-click="saveRequest()" ui-sref="home">Accept Ride!</button>
       </form>
-
+</div>
     </body>
 </html>
