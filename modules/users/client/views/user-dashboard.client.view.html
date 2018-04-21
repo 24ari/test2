@@ -35,11 +35,10 @@
 
                   <td><button type="button" class="btn btn-success"  ng-click = "updateRide(riderequest.rideId,riderequest._id);updateRequest(riderequest._id)">Accept</button></td>
 
-              
-
-
-
                   <td><button type="button" class="btn btn-danger" onclick="return confirm('Are you sure?')" ng-click = "removeRequest(riderequest._id)">Decline</button></td>
+
+                  <td><button type="button" class="btn btn-success" ng-click = "viewPassenger(riderequest._id)">View</button></td>
+
                 </tr>
               </table>
             </div>
@@ -75,7 +74,7 @@
                    <td>{{ride.departure}}</td>
                    <td>{{ride.arrival}}</td>
                    <td>{{ride.spotsAvailable}}</td>
-                  <td><button type="button" class="btn btn-success">Mark as Completed</button></td>
+                  <td><button type="button" class="btn btn-success" ui-sref="passengerrate({rideId: ride._id})">Mark as Completed</button></td>
                 </tr>
               </table>
             </div>

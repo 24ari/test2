@@ -191,7 +191,7 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
 
     
-function saveRide(id){
+function saveRide(id,requestId){
 
 return new Promise(function(resolve,reject){
     console.log("Inside saveRide promise");
@@ -202,6 +202,10 @@ return new Promise(function(resolve,reject){
     // resolve(ride);   
     // console.log("Or the ride is>>>");
     // console.log(ride);
+
+
+
+
 
     var ride;
 
@@ -234,7 +238,9 @@ return new Promise(function(resolve,reject){
   console.log("spot number is" + decreaseSpot);
 
   var passengers = $scope.ride.passengers;
-  passengers.push("bo");
+  //passengers.push("lol");
+  console.log("the Scope is" + $scope.request);
+  passengers.push($scope.request.requesterId);
 
     var ride = {
         arrival: $scope.ride.arrival,
@@ -296,7 +302,6 @@ return ride;
           console.log("we are inside promise 1");
           
           var ride = getRide1(rideId);
-          //comes back here too fast
           console.log("the ride we are returning from promise 1 is:", ride);
           console.log(ride);
           
@@ -306,7 +311,7 @@ return ride;
       console.log("we are inside promise 2")
         
         return new Promise(function(resolve,reject){
-            var upRide = saveRide(rideId);
+            var upRide = saveRide(rideId,requestId);
             console.log("retrieving upride",upRide);
             resolve(upRide); //wth
     });
@@ -325,7 +330,7 @@ return ride;
 
 
 
-    $scope.updateRequest = function(requestId){
+    $scope.updateRequest = function(requestId){  //FUNCTION TO UPDATE REQUEST
 
         return new Promise(function(resolve,reject){
           console.log("we are inside promise request 1");
@@ -381,8 +386,6 @@ return ride;
                 console.log($scope.request);
                 //console.log(response.data);
                 resolve(request);
-
-
                 console.log("or are we here dasdadadasd?");
               }, function(error) {
                 $scope.error = 'Unable to retrieve request!\n' + error;

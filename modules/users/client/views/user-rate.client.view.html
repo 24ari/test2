@@ -1,0 +1,50 @@
+<html>
+<title>Admin Dashboard</title>
+<meta charset="UTF-8">
+<body>
+    <div class="col-lg-10 top-margin-2">
+      <div class="panel panel-default">
+        <div class="panel-heading" >
+          <h3 class="panel-title"><i class=""></i> <b>Rate Passengers</b></h3>
+        </div>
+
+        <div class="row" ng-controller="RiderequestsController" data-ng-init='listRequests()'>
+          <div class="col-md-12">
+            
+          </div>
+
+          <div class="col-md-12">
+            <div class="tableWrapper">
+              <table class="table table-striped table-hover table-bordered">
+                <tr>
+                  <th>Passenger</th>
+                  <th>Rate</th>
+                  <th></th>
+                </tr>
+
+               <tr ng-controller = "HeaderController" ng-repeat="riderequest in riderequests | filter: {user:{_id: elId }} :true">
+                  <td>{{riderequest.driverName}}</td>
+                  <td>
+                  <select>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </td>
+                 
+
+                  <td><button type="button" class="btn btn-success"> Submit</button></td>
+               
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
