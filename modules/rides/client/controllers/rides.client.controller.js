@@ -27,15 +27,40 @@
     $scope.spotsLeft ='';
     $scope.spotsAvailable ='';
 
+    $scope.passengers = [];
 
 
-
-
-
+    //$scope.rideId = $stateParams.rideId;
 
     $scope.elId2 = vm.authentication.user._id;
 
     console.log("inside ridesController");
+
+
+    //get all interviewees for a volunteer registered as an interviewer
+   
+
+
+    // function getMentees(){
+    //   var rides = $scope.rides;
+    //   var passengers = [];
+
+
+
+    //   $scope.currMentorIndex = [];
+    //   for(var i = 0; i < $scope.rides.length; i++)
+    //   {
+    //     if($scope.students[i].mentor.includes($scope.voluser.displayName))
+    //     {
+    //       mentees.push($scope.students[i]);
+    //       $scope.currMentorIndex.push($scope.students[i].mentor.indexOf($scope.voluser.displayName));
+    //     }
+    //   }
+    //   $scope.mentees = mentees;
+    // };
+
+
+
 
     function createRide(){
       var ride = {
@@ -76,6 +101,42 @@
           console.log("unable to find user#######");
       });
     };
+
+
+
+     $scope.getRide = function(rideId) {
+
+      console.log("we are calling get ride!");
+      //console.log("the id for get ride is:" + rideId); //ISSUE: id is undefined
+
+
+      console.log("bruuuh");
+      console.log("the id is:");
+      console.log(rideId);
+     
+      var elId10 = rideId;
+
+      var elArray=[];
+
+      RidesService.read(elId10).then(function(response) {
+        $scope.ride = response.data;
+        console.log($scope.ride);
+        elArray= $scope.ride.passengers;
+
+
+        console.log("our array is");
+        console.log(elArray);
+        //console.log(response.data);
+
+        $scope.passengers = elArray;
+        console.log("success retrieving ride");
+
+      }, function(error) {
+        $scope.error = 'Unable to retrieve ride!\n' + error;
+        console.log("nope");
+      });
+    };
+
 
 
 

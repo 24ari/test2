@@ -33,6 +33,19 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
      $scope.listRequests = function() {
 
       //get all the rides, then bind it to the scope
@@ -439,17 +452,6 @@ return request;
   });
 
 };
-
-
-
-
-
-
-
-
-
-
-
 
 //       var ride = saveRide(id);
 
