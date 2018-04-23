@@ -24,6 +24,7 @@ exports.create = function(req, res) {
   riderequest.arrival = req.body.arrival;
   riderequest.departure = req.body.departure;
   riderequest.date = req.body.date;
+  riderequest.requesterName = req.body.requesterName;
 
   riderequest.save(function(err) {
     if (err) {

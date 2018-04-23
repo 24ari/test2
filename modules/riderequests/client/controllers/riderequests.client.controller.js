@@ -33,19 +33,6 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
      $scope.listRequests = function() {
 
       //get all the rides, then bind it to the scope
@@ -64,21 +51,24 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
       console.log("the rideId is:" + $scope.ride._id);
       console.log("the authentication id is:" + Authentication.user._id);
       var requesterId;
+      var requesterName;
 
       requesterId= Authentication.user._id;
-
+      requesterName = Authentication.user.displayName;
 
       console.log("the requesterid is" + requesterId);
+
+      console.log("the requesterName is" + requesterName);
 
       unId = $scope.ride._id;
 
       var request = {
 
-
           rideId : unId,
           driverName: $scope.ride.driverName,
           driverId: $scope.ride.user._id,
           requesterId: requesterId,
+          requesterName: requesterName,
           arrival: $scope.ride.arrival,
           departure: $scope.ride.departure,
           date: $scope.ride.date
@@ -217,9 +207,6 @@ return new Promise(function(resolve,reject){
     // console.log(ride);
 
 
-
-
-
     var ride;
 
     console.log("the id we are trying to pass is:" + id);
@@ -242,6 +229,7 @@ return new Promise(function(resolve,reject){
   var decreaseSpot;
   var spotsAva;
 
+
   spotsAva = $scope.ride.spotsAvailable;
   console.log("the scope shows:" + $scope.ride.spotsAvailable);
   console.log(" spots available are: " + spotsAva);
@@ -250,16 +238,30 @@ return new Promise(function(resolve,reject){
 
   console.log("spot number is" + decreaseSpot);
 
-  var passengers = $scope.ride.passengers;
-  //passengers.push("lol");
+  //var passengers = $scope.ride.passengers;
+  var passengerObj = $scope.ride.passengersArray;
+
+
+
   console.log("the Scope is" + $scope.request);
-  passengers.push($scope.request.requesterId);
+  //works for single array,uncomment if last resource
+  // passengers.push($scope.request.requesterId);
+
+
+  var passengerVar = {"id" : $scope.request.requesterId,
+                       "name": $scope.request.requesterName};
+
+
+  passengerObj.push(passengerVar);
+
+  console.log("our passengerObj is" + passengerObj);
 
     var ride = {
         arrival: $scope.ride.arrival,
         spotsAvailable: decreaseSpot,
         price: $scope.ride.arrival,
-        passengers: passengers
+        //passengers: passengers
+        passengersArray: passengerObj
     }
   console.log(" the ride we are returning form saveRide in promise 2is:");
   console.log(ride);

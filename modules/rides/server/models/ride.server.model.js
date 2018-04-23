@@ -49,6 +49,8 @@ var RideSchema = new Schema({
 
   passengers: [],
 
+  passengersArray: {type: Array, "default" : [] },
+
   canPickUp:{
     type:Boolean
   },

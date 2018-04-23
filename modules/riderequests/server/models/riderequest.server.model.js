@@ -34,6 +34,10 @@ var RiderequestSchema = new Schema({
     type:String
   },
 
+  requesterName:{
+    type:String
+  },
+
   rideId:{
     type:String
   },

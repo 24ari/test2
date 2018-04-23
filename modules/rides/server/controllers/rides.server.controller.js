@@ -24,6 +24,7 @@ exports.create = function(req, res) {
   ride.price = req.body.price;
   ride.spotsLeft = req.body.spotsLeft;
   ride.passengers = req.body.passengers;
+  ride.passengersArray = req.body.passengersArray;
 
   console.log('at least we got here');
   ride.save(function(err) {

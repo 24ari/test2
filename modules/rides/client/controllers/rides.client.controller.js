@@ -121,7 +121,7 @@
       RidesService.read(elId10).then(function(response) {
         $scope.ride = response.data;
         console.log($scope.ride);
-        elArray= $scope.ride.passengers;
+        elArray= $scope.ride.passengersArray;
 
 
         console.log("our array is");
