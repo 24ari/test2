@@ -31,7 +31,7 @@
                   <th></th>
                 </tr>
 
-                  <tr ng-repeat="ride in rides | filter: query">
+                  <tr ng-repeat="ride in rides | filter: query | filter: {isCompleted:false}">
                   <td>{{ride.user.displayName}}</td>
                   <td>{{ride.date}}</td>
                   <td>{{ride.departure}}</td>

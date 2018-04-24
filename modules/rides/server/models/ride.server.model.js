@@ -47,11 +47,22 @@ var RideSchema = new Schema({
     type:String
   },
 
+  about: {
+    type:String
+  },
+
   passengers: [],
+
+  passengersArray: {type: Array, "default" : [] },
 
   canPickUp:{
     type:Boolean
   },
+
+  isCompleted:{
+    type:Boolean,
+    default: false
+  }
 
   
 });

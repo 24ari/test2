@@ -6,9 +6,9 @@
     .module('riderequests')
     .controller('RiderequestsController', RiderequestsController);
 
-  RiderequestsController.$inject = ['$scope', '$state', '$window', 'Authentication','RiderequestsService','RidesService','$http'];
+  RiderequestsController.$inject = ['$scope', '$state', '$window', 'Authentication','RiderequestsService','RidesService','UsersService','$http'];
 
-  function RiderequestsController ($scope, $state, $window, Authentication, RiderequestsService, RidesService, $http) {
+  function RiderequestsController ($scope, $state, $window, Authentication, RiderequestsService, RidesService, UsersService,$http) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -33,6 +33,136 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
 
 
+
+
+    $scope.completeRequest = function(requestId){  //FUNCTION TO UPDATE REQUEST
+
+        return new Promise(function(resolve,reject){
+          console.log("we are inside promise request 1");
+          
+          var request = getRequest1(requestId);
+          //comes back here too fast
+          console.log("the ride we are returning from promise request 1 is:", request);
+          console.log(request);
+          
+          resolve(request);
+
+    }).then(function(elReq){
+      console.log("we are inside promise request 2")
+        
+        return new Promise(function(resolve,reject){
+            var upReq = saveCompletedRequest(requestId);
+            console.log("retrieing upride",upReq);
+            resolve(upReq);
+    });
+
+      }).then(function(newUpRequest){
+            console.log("inside promise requesst 3");
+            
+            RiderequestsService.update(newUpRequest,requestId).then(function(response) {
+                console.log("Success updating request!");
+                console.log(response);
+                //$window.location.reload();
+            });
+        }); 
+    };
+ 
+
+
+
+function saveCompletedRequest(id){
+
+return new Promise(function(resolve,reject){
+    console.log("Inside saveRequest promise"); 
+    var request;
+
+    console.log("the id we are trying to pass is:" + id);
+
+    request = getRequest1(id);
+    
+     console.log("the request is:::::");
+     
+    //ride = getRide1(id);
+
+     resolve(request);
+     console.log("Getting out of readinG request in save request of promise 2");
+     console.log(request);
+
+}).then(function(result){
+
+  console.log("the scope arrival is" + $scope.request.arrival);
+
+
+    var request = {
+        isCompleted : true,
+        isCompleted: true
+    }
+
+  console.log(" the request we are returning form saveRide in promise 2is:");
+  console.log(request);
+
+return request;
+// });   
+  });
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $scope.averageRate = function(driverId){
+
+
+      console.log("calling averageRate");
+
+      var sum = 0;
+      var rates = [];
+
+
+      console.log("id we are passing inside averagerate is:" + driverId);
+
+      UsersService.read(driverId).then(function(response) {
+        $scope.user = response.data;
+        console.log($scope.user);
+
+      console.log("user rate is " + $scope.user.rate);
+      rates = $scope.user.rate;
+
+      for(var i =0; i < rates.length; i++){
+          sum += parseInt(rates[i],10);
+      }
+
+      var avg = sum / rates.length;
+
+      console.log("our average is" + avg);
+
+      $scope.rateAverage = avg;
+
+
+      }, function(error) {
+        $scope.error = 'Unable to retrieve ride!\n' + error;
+        console.log("nope");
+      });
+
+
+    };
+
+
+
      $scope.listRequests = function() {
 
       //get all the rides, then bind it to the scope
@@ -51,21 +181,24 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
       console.log("the rideId is:" + $scope.ride._id);
       console.log("the authentication id is:" + Authentication.user._id);
       var requesterId;
+      var requesterName;
 
       requesterId= Authentication.user._id;
-
+      requesterName = Authentication.user.displayName;
 
       console.log("the requesterid is" + requesterId);
+
+      console.log("the requesterName is" + requesterName);
 
       unId = $scope.ride._id;
 
       var request = {
 
-
           rideId : unId,
           driverName: $scope.ride.driverName,
           driverId: $scope.ride.user._id,
           requesterId: requesterId,
+          requesterName: requesterName,
           arrival: $scope.ride.arrival,
           departure: $scope.ride.departure,
           date: $scope.ride.date
@@ -204,9 +337,6 @@ return new Promise(function(resolve,reject){
     // console.log(ride);
 
 
-
-
-
     var ride;
 
     console.log("the id we are trying to pass is:" + id);
@@ -229,6 +359,7 @@ return new Promise(function(resolve,reject){
   var decreaseSpot;
   var spotsAva;
 
+
   spotsAva = $scope.ride.spotsAvailable;
   console.log("the scope shows:" + $scope.ride.spotsAvailable);
   console.log(" spots available are: " + spotsAva);
@@ -237,16 +368,30 @@ return new Promise(function(resolve,reject){
 
   console.log("spot number is" + decreaseSpot);
 
-  var passengers = $scope.ride.passengers;
-  //passengers.push("lol");
+  //var passengers = $scope.ride.passengers;
+  var passengerObj = $scope.ride.passengersArray;
+
+
+
   console.log("the Scope is" + $scope.request);
-  passengers.push($scope.request.requesterId);
+  //works for single array,uncomment if last resource
+  // passengers.push($scope.request.requesterId);
+
+
+  var passengerVar = {"id" : $scope.request.requesterId,
+                       "name": $scope.request.requesterName};
+
+
+  passengerObj.push(passengerVar);
+
+  console.log("our passengerObj is" + passengerObj);
 
     var ride = {
         arrival: $scope.ride.arrival,
         spotsAvailable: decreaseSpot,
         price: $scope.ride.arrival,
-        passengers: passengers
+        //passengers: passengers
+        passengersArray: passengerObj
     }
   console.log(" the ride we are returning form saveRide in promise 2is:");
   console.log(ride);
@@ -322,6 +467,7 @@ return ride;
             RidesService.update(newUpRide,rideId).then(function(response) {
                 console.log("Success updating ride!");
                 console.log(response);
+                $state.go('dashboard1');
                 //$window.location.reload();
             });
 
@@ -428,7 +574,8 @@ return new Promise(function(resolve,reject){
 
     var request = {
         status : "accepted",
-        status : "accepted"
+        status : "accepted",
+        isAccepted: true,
     }
 
   console.log(" the request we are returning form saveRide in promise 2is:");
@@ -439,17 +586,6 @@ return request;
   });
 
 };
-
-
-
-
-
-
-
-
-
-
-
 
 //       var ride = saveRide(id);
 

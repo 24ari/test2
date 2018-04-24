@@ -11,10 +11,10 @@
     <body ng-controller = "RiderequestsController">
       <div ng-controller = "RidesController">
 
-         <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id);findUser(driverId);averageRate(driverId)">
+         <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "findUser(passengerId)">
 
         <fieldset>
-          <legend><span class="number">1</span>About Driver</legend>
+          <legend><span class="number">1</span>About Passenger</legend>
 
           <label for="First name">First Name</label>
           <input ng-model='user1.firstName' type="text" id="name" name="firstName" placeholder="First Name" required>
@@ -31,39 +31,8 @@
             <label for="mail">Phone <span class="glyphicon glyphicon-phone"></span></label>
           <input ng-model='user1.phone'  type= "text" id="phone" name="user_phone" placeholder="xxx-xxx-xxxx">
 
-          <label for="mail">Driver Rate</label>
-          <input ng-model='rateAverage'  type= "text" id="rate" name="user_rate" placeholder="rate"> 
-
         </fieldset>
 
-        <fieldset>
-          <legend><span class="number">2</span>Trip Info</legend>
-
-         <label for="name">Date <span class="glyphicon glyphicon-calendar"></span></label>
-          <input ng-model = 'ride.date' type="text" id="name" name="user_name" placeholder="mm-dd-yyyy">
-
-        <label for="name">Departure <span class="glyphicon glyphicon-road"></span></label>
-          <input ng-model = 'ride.departure' type="text" id="name" name="user_name" placeholder="Departing from...">
-
-          <label for="name">Arrival <span class="glyphicon glyphicon-home"></span></label>
-          <input ng-model = 'ride.arrival' type="text" id="name" name="user_name" placeholder="Traveling to...">
-
-          <label for="name">Cost <span class="glyphicon glyphicon-usd"></span></label>
-          <input ng-model = 'ride.price' type="text" id="name" name="user_name" placeholder="$">
-
-           <label for="bio">About trip</label>
-          <textarea id="bio"  ng-model = 'ride.about' name="user_bio"></textarea>
-
-
-        </fieldset>
-
-
-
-        <fieldset>
-
-
-
-        <button type="submit" ng-click="saveRequest()" ui-sref="home">Accept Ride!</button>
       </form>
 </div>
     </body>

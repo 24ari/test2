@@ -34,6 +34,10 @@ var RiderequestSchema = new Schema({
     type:String
   },
 
+  requesterName:{
+    type:String
+  },
+
   rideId:{
     type:String
   },
@@ -64,7 +68,8 @@ var RiderequestSchema = new Schema({
   },
 
   isCompleted:{
-    type:Boolean
+    type:Boolean,
+    default: false
   },
 
   date:{

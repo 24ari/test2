@@ -52,6 +52,37 @@ angular.module('users').config(['$stateProvider',
       })
 
 
+      .state('driverrate', { 
+        url: '/driverrate/:driverId',
+        templateUrl: 'modules/users/client/views/driver-rate.client.view.html',
+        controller: function($scope,$stateParams){
+          $scope.driverId = $stateParams.driverId;
+          console.log("driver id is " + $stateParams.driverId);
+      }
+
+      })
+
+
+       .state('viewrequest', { 
+        url: '/viewrequest/:rideId',
+        templateUrl: 'modules/users/client/views/view-requests.client.view.html',
+        controller: function($scope,$stateParams){
+          $scope.rideId = $stateParams.rideId;
+          console.log("request id is " + $stateParams.rideId);
+      }
+
+      })
+
+
+        .state('viewpassenger', { 
+        url: '/viewpassenger/:passengerId',
+        templateUrl: 'modules/users/client/views/view-passenger.client.view.html',
+        controller: function($scope,$stateParams){
+          $scope.passengerId = $stateParams.passengerId;
+          console.log("request id is " + $stateParams.passengerId);
+      }
+
+      })
 
 
     .state('dashboard1', { //come back to this later!!
