@@ -30,7 +30,7 @@
                   <th>Spots Left</th>
                   <th></th>
                 </tr>
-               <tr ng-controller = "HeaderController" ng-repeat="ride in rides | filter:  {user: { _id : elId2}} :true">
+               <tr ng-controller = "HeaderController" ng-repeat="ride in rides | filter: {isCompleted:false} | filter:  {user: { _id : elId2}} :true">
                    <td>{{ride.date}}</td>
                    <td>{{ride.departure}}</td>
                    <td>{{ride.arrival}}</td>
