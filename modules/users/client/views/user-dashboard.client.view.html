@@ -5,8 +5,8 @@
     <div style=" padding-top:20px;" class="col-lg-10 top-margin-2">
 
 
-        
- <div class="col-lg-10 top-margin-2">
+
+ <div class="col-lg-12 top-margin-2">
       <div class="panel panel-default">
 
         <div class="panel-heading">
@@ -30,7 +30,7 @@
                               <th></th>
                               <th></th>
                               <th></th>
-                              
+
                             </tr>
                            <tr ng-controller = "HeaderController" ng-repeat="ride in rides | filter: {isCompleted:false} | filter:  {user: { _id : elId2}} :true">
                                <td>{{ride.date}}</td>
@@ -50,5 +50,5 @@
   </div>
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  
+
 </body>
