@@ -290,7 +290,9 @@
         departure: $scope.departure,
         price: $scope.price,
         date: $scope.date,
-        spotsAvailable: $scope.spotsAvailable
+        spotsAvailable: $scope.spotsAvailable,
+        about: $scope.about,
+        phone: $scope.phone
       };
         return ride;
     }
