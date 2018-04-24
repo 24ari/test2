@@ -74,6 +74,17 @@ angular.module('users').config(['$stateProvider',
       })
 
 
+        .state('viewpassenger', { 
+        url: '/viewpassenger/:passengerId',
+        templateUrl: 'modules/users/client/views/view-passenger.client.view.html',
+        controller: function($scope,$stateParams){
+          $scope.passengerId = $stateParams.passengerId;
+          console.log("request id is " + $stateParams.passengerId);
+      }
+
+      })
+
+
     .state('dashboard1', { //come back to this later!!
         url: '/dashboard1',
         templateUrl: 'modules/users/client/views/user-dashboard.client.view.html'
