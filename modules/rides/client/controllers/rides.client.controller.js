@@ -459,6 +459,8 @@
       UsersService.update(vor,porfa).then(function(response){
         console.log("Succcess up,dating user!");
         console.log(response);
+        $state.go("dashboard2");
+
       });
 
   });

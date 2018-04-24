@@ -1,0 +1,39 @@
+</html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="modules/users/client/css/newcss.css">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body ng-controller = "RiderequestsController">
+      <div ng-controller = "RidesController">
+
+         <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "findUser(passengerId)">
+
+        <fieldset>
+          <legend><span class="number">1</span>About Passenger</legend>
+
+          <label for="First name">First Name</label>
+          <input ng-model='user1.firstName' type="text" id="name" name="firstName" placeholder="First Name" required>
+
+          <label for="Last Name">Last Name</label>
+          <input ng-model='user1.lastName' type="text" id="lastname" name="lastName" placeholder="Last Name" required>
+
+          <label for="mail">Email <span class="glyphicon glyphicon-envelope"></span></label>
+          <input ng-model='user1.email' type="email" id="mail" name="user_email" placeholder="Email" required>
+
+          <label for="mail">School <span class="glyphicon glyphicon-education"></span></label>
+          <input ng-model='user1.school' type="text" id="school" name="user_school" placeholder="University" required>
+
+            <label for="mail">Phone <span class="glyphicon glyphicon-phone"></span></label>
+          <input ng-model='user1.phone'  type= "text" id="phone" name="user_phone" placeholder="xxx-xxx-xxxx">
+
+        </fieldset>
+
+      </form>
+</div>
+    </body>
+</html>
