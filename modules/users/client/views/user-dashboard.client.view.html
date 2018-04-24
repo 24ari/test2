@@ -20,27 +20,31 @@
               <input type="text" class="form-control" placeholder="Search" ng-model="query">
             </div>
           </div>
-          <div class="col-md-12">
-            <div class="tableWrapper">
-              <table class="table table-striped table-hover table-bordered">
-                <tr>
-                  <th>Date</th>
-                  <th>Departure</th>
-                  <th>Arrival</th>
-                  <th>Spots Left</th>
-                  <th></th>
-                </tr>
-               <tr ng-controller = "HeaderController" ng-repeat="ride in rides | filter: {isCompleted:false} | filter:  {user: { _id : elId2}} :true">
-                   <td>{{ride.date}}</td>
-                   <td>{{ride.departure}}</td>
-                   <td>{{ride.arrival}}</td>
-                   <td>{{ride.spotsAvailable}}</td>
-                  <td><button type="button" class="btn btn-success" ui-sref="passengerrate({rideId: ride._id})" ng-click = "completeRide(ride._id)">Mark as Completed</button></td>
-                   <td><button type="button" class="btn btn-success" ui-sref="viewrequest({rideId: ride._id})">View Requests</button></td>
-                </tr>
-              </table>
-            </div>
-          </div>
+                <div class="col-md-12">
+                  <div class="tableWrapper">
+                          <table class="table table-striped table-hover table-bordered">
+                            <tr>
+                              <th>Date</th>
+                              <th>Departure</th>
+                              <th>Arrival</th>
+                              <th>Spots Left</th>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                              
+                            </tr>
+                           <tr ng-controller = "HeaderController" ng-repeat="ride in rides | filter: {isCompleted:false} | filter:  {user: { _id : elId2}} :true">
+                               <td>{{ride.date}}</td>
+                               <td>{{ride.departure}}</td>
+                               <td>{{ride.arrival}}</td>
+                               <td>{{ride.spotsAvailable}}</td>
+                              <td><button type="button" class="btn btn-success"  ng-click = "completeRide(ride._id)">Mark as Completed</button></td>
+                               <td><button type="button" class="btn btn-success" ui-sref="viewrequest({rideId: ride._id})">View Requests</button></td>
+                               <td><button type="button" class="btn btn-success" ui-sref="passengerrate({rideId: ride._id})">View Passengers</button></td>
+                            </tr>
+                          </table>
+                  </div>
+                </div>
         </div>
       </div>
     </div>

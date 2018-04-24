@@ -45,7 +45,7 @@ angular.module('users').config(['$stateProvider',
         url: '/passengerrate/:rideId',
         templateUrl: 'modules/users/client/views/user-rate.client.view.html',
         controller: function($scope,$stateParams){
-          $scope.id = $stateParams.rideId;
+          $scope.rideId = $stateParams.rideId;
           console.log("ride id is " + $stateParams.rideId);
       }
 
