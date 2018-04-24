@@ -26,7 +26,9 @@ exports.create = function(req, res) {
   ride.passengers = req.body.passengers;
   ride.passengersArray = req.body.passengersArray;
   ride.isCompleted = req.body.isCompleted;
+  ride.about = req.body.about;
 
+  
   console.log('at least we got here');
   ride.save(function(err) {
     if (err) {

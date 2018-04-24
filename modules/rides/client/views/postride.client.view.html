@@ -64,20 +64,20 @@
                                     </div>
                                 </div>
 
-                                  <div class="col-md-6">
+                                 <!--  <div class="col-md-6">
                                 <input type="checkbox" id="roundtrip" name="roundtrip" >
                                 <label for="roundtrip">Roundtrip</label>
                                 <br>
                                 <input type="checkbox" id="stop" name="stop" >
                                 <label for="stop">Can stop along the way</label>
-                                </div>
+                                </div> -->
 
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="form_message">Message</label>
-                                        <textarea id="form_message" name="message" class="form-control" placeholder="Message*" rows="4" required="required" data-error="Please,leave us a message."></textarea>
+                                        <textarea id="form_message" ng-model ="about" name="message" class="form-control" placeholder="Message*" rows="4" required="required" data-error="Please,leave us a message."></textarea>
                                         <p class="help-block error-text" ng-messages="required">Enter a message</p>
                                     </div>
                                 </div>
