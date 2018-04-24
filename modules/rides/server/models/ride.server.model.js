@@ -55,6 +55,12 @@ var RideSchema = new Schema({
     type:Boolean
   },
 
+  isCompleted:{
+
+    type:Boolean,
+    default: false
+  }
+
   
 });
 

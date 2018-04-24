@@ -35,7 +35,7 @@
                    <td>{{ride.departure}}</td>
                    <td>{{ride.arrival}}</td>
                    <td>{{ride.spotsAvailable}}</td>
-                  <td><button type="button" class="btn btn-success" ui-sref="passengerrate({rideId: ride._id})">Mark as Completed</button></td>
+                  <td><button type="button" class="btn btn-success" ui-sref="passengerrate({rideId: ride._id})" ng-click = "completeRide(ride._id)">Mark as Completed</button></td>
                    <td><button type="button" class="btn btn-success" ui-sref="viewrequest({rideId: ride._id})">View Requests</button></td>
                 </tr>
               </table>

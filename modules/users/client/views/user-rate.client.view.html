@@ -8,7 +8,9 @@
           <h3 class="panel-title"><i class=""></i> <b>Rate Passengers</b></h3>
         </div>
 
-        <div class="row" ng-controller="RidesController" data-ng-init='getRide(rideId)'>
+       <!--  <div class="row" ng-controller="RidesController" data-ng-init='getRide(rideId)'> -->
+
+       <div class="row">
           <div class="col-md-12">
             
           </div>
@@ -24,8 +26,9 @@
 
              <!--   <tr ng-controller = "HeaderController" ng-repeat="ride in rides | filter: {user:{_id: elId }} :true"> -->
 
-                 <tr ng-controller = "HeaderController" ng-repeat="passenger in passengers track by $index">
+               <!--   <tr ng-controller = "HeaderController" ng-repeat="passenger in passengers track by $index"> -->
 
+               <tr ng-controller = "HeaderController">
                   <td>{{passenger.name}}</td>
                   <td>
                   <select ng-model = "elValue[$index]">
@@ -36,7 +39,7 @@
                 </select>
               </td>
                 
-                  <td><button type="button" class="btn btn-success" ng-click = "submitRate(passenger.id)"> Submit</button></td>
+                 <!--  <td><button type="button" class="btn btn-success" ng-click = "submitRate(passenger.id)"> Submit</button></td> -->
                
                 </tr>
               </table>
