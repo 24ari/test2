@@ -77,6 +77,211 @@
 
 
 
+    $scope.completeRide = function(rideId){
+
+      return new Promise(function(resolve,reject){
+          console.log("we are inside promise request 1");
+          console.log("the id we are trying to pass is" + rideId);
+
+          var ride = getRide1(rideId);
+          //comes back here too fast
+          console.log("the ride we are returning from promise request 1 is:", ride);
+          console.log(ride);
+          
+          resolve(ride);
+
+    }).then(function(elRide){
+      console.log("we are inside promise request 2")
+        
+        return new Promise(function(resolve,reject){
+            var upReq = saveCompletedRide(rideId);
+            console.log("retrieing upride",upReq);
+            resolve(upReq);
+    });
+
+      }).then(function(newUpRequest){
+            console.log("inside promise requesst 3");
+            
+            RidesService.update(newUpRequest,rideId).then(function(response) {
+                console.log("Success updating ride!");
+                console.log(response);
+                //$window.location.reload();
+            });
+        });
+
+    };
+
+
+
+
+
+ function getRide1(rideId) {
+
+  console.log("inside new function for getting ride");
+
+      //console.log("we here");
+      //var id = $stateParams.user;
+
+      //var id = '59f7f305e58b4010fc1307f4';
+
+    var ride;
+      
+    return new Promise(function(resolve,reject){
+
+      console.log("the id for get ride is:" + rideId); //ISSUE: id is undefined
+
+              RidesService.read(rideId).then(function(response) {
+                $scope.ride = response.data;
+                ride = response.data;
+                console.log("the ride we are about to pass to scope is:");
+                console.log($scope.ride);
+                //console.log(response.data);
+                resolve(ride);
+
+
+                console.log("or are we here dasdadadasd?");
+              }, function(error) {
+                $scope.error = 'Unable to retrieve ride!\n' + error;
+                console.log("nope");
+              });  
+  
+          //resolve(ride);
+  }).then(function(updatedRide){
+      return updatedRide;
+   });
+  };
+
+
+
+
+
+    function saveCompletedRide(id,user){
+
+      console.log("In complete ride function");
+
+        return new Promise(function(resolve,reject){
+          var user1;
+          user1 = getRide1(id);
+          resolve(user1);
+          console.log(user1);
+       
+        }).then(function(result){
+
+          //console.log("the displayName is" + $scope.user.Authentication.displayName);
+          // console.log("the firstName is" + $scope.user.firstName);
+          // console.log("the lastName is" + $scope.user.lastName);
+          //var valuesArray=[];
+          //var rateValue;
+
+          
+          //console.log("elvalue2 is" + $scope.elValue2);
+          //rateValue = $scope.elValue;
+          //console.log("el value box is" + $scope.elValue.selectBoxes);
+          //console.log("elValue is" + rateValue);
+          //valuesArray = $scope.user.rate;
+          //valuesArray.push(elValue);
+
+
+          //console.log("elvalue2 is" + $scope.elValue2);
+          //rateValue = $scope.driverRateBox;
+          //console.log("el value box is" + $scope.elValue.selectBoxes);
+          //console.log("elValue is" + rateValue);
+          //valuesArray = $scope.user.rate;
+          //valuesArray.push(rateValue);
+
+
+          var use = {
+            isCompleted: true,
+            isCompleted:true            
+            //rate: valuesArray
+
+          }
+
+          console.log("the ride we are returning is:");
+          console.log(use);
+
+          return use;
+
+    });
+
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     $scope.completeRate1 = function(driverId){
+
+      var user;
+      console.log("The id we are passing is" + driverId);
+
+
+  return new Promise(function(resolve,reject){
+
+      var user = getUser(driverId);
+      console.log(user);
+      resolve(user);
+
+      console.log("coming back here");
+      console.log("the usuer is:");
+      console.log(user);
+
+  }).then(function(elUser){
+
+    return new Promise(function(resolve,reject){
+        var upUser = saveUser(driverId,elUser);
+        console.log("retrieving upuser", upUser);
+        resolve(upUser);
+  });
+     
+  }).then(function(newUpUser){
+    console.log("in last promise");
+
+    console.log("our newupuser is");
+    console.log(newUpUser);
+    console.log("our id is");
+    console.log(driverId);
+
+    var porfa;
+    var vor;
+
+    porfa = driverId;
+    vor = newUpUser;
+
+      UsersService.update(vor,porfa).then(function(response){
+        console.log("Succcess up,dating user!");
+        console.log(response);
+      });
+
+  });
+
+    };
+
+
+
+
+
+
+
+
+
+
+
 
     function createRide(){
       var ride = {
