@@ -28,14 +28,14 @@
                   <th></th>
                 </tr>
 
-               <tr ng-controller = "HeaderController" ng-repeat="riderequest in riderequests | filter: {user:{_id: elId }} :true">
+               <tr ng-controller = "HeaderController" ng-repeat="riderequest in riderequests | filter: {isCompleted:false}| filter: {user:{_id: elId }} :true">
                   <td>{{riderequest.driverName}}</td>
                   <td>{{riderequest.date}}</td>
                   <td>{{riderequest.departure}}</td>
                   <td>{{riderequest.arrival}}</td>
                   <td>{{riderequest.status}}</td>
-                  <td><button type="button" class="btn btn-success" ui-sref="driverrate({driverId: riderequest.driverId})" > Mark as completed</button></td>
-                  <td><button type="button" onclick="return confirm('Are you sure?')" class="btn btn-danger">Cancel</button></td>
+                  <td><button type="button" class="btn btn-success" ui-sref="driverrate({driverId: riderequest.driverId})"  ng-click = "completeRequest(riderequest._id)" > Mark as completed</button></td>
+                  <td><button type="button" onclick="return confirm('Are you sure?')" ng-click = "removeRequest(riderequest._id)" class="btn btn-danger">Cancel</button></td>
                 </tr>
               </table>
             </div>

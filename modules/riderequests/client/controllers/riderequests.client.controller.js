@@ -34,6 +34,96 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
 
 
 
+
+    $scope.completeRequest = function(requestId){  //FUNCTION TO UPDATE REQUEST
+
+        return new Promise(function(resolve,reject){
+          console.log("we are inside promise request 1");
+          
+          var request = getRequest1(requestId);
+          //comes back here too fast
+          console.log("the ride we are returning from promise request 1 is:", request);
+          console.log(request);
+          
+          resolve(request);
+
+    }).then(function(elReq){
+      console.log("we are inside promise request 2")
+        
+        return new Promise(function(resolve,reject){
+            var upReq = saveCompletedRequest(requestId);
+            console.log("retrieing upride",upReq);
+            resolve(upReq);
+    });
+
+      }).then(function(newUpRequest){
+            console.log("inside promise requesst 3");
+            
+            RiderequestsService.update(newUpRequest,requestId).then(function(response) {
+                console.log("Success updating request!");
+                console.log(response);
+                //$window.location.reload();
+            });
+        }); 
+    };
+ 
+
+
+
+function saveCompletedRequest(id){
+
+return new Promise(function(resolve,reject){
+    console.log("Inside saveRequest promise"); 
+    var request;
+
+    console.log("the id we are trying to pass is:" + id);
+
+    request = getRequest1(id);
+    
+     console.log("the request is:::::");
+     
+    //ride = getRide1(id);
+
+     resolve(request);
+     console.log("Getting out of readinG request in save request of promise 2");
+     console.log(request);
+
+}).then(function(result){
+
+  console.log("the scope arrival is" + $scope.request.arrival);
+
+
+    var request = {
+        isCompleted : true,
+        isCompleted: true
+    }
+
+  console.log(" the request we are returning form saveRide in promise 2is:");
+  console.log(request);
+
+return request;
+// });   
+  });
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     $scope.averageRate = function(driverId){
 
 
