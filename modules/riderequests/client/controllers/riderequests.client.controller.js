@@ -6,9 +6,9 @@
     .module('riderequests')
     .controller('RiderequestsController', RiderequestsController);
 
-  RiderequestsController.$inject = ['$scope', '$state', '$window', 'Authentication','RiderequestsService','RidesService','$http'];
+  RiderequestsController.$inject = ['$scope', '$state', '$window', 'Authentication','RiderequestsService','RidesService','UsersService','$http'];
 
-  function RiderequestsController ($scope, $state, $window, Authentication, RiderequestsService, RidesService, $http) {
+  function RiderequestsController ($scope, $state, $window, Authentication, RiderequestsService, RidesService, UsersService,$http) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -30,6 +30,46 @@ console.log("the id for the signed id user is" + vm.authentication.user._id);
     //$scope.id = ''; //JUST ADDED THIS!!!!!!!!!!!!!!!
 
     console.log("calling riderequest controlla");
+
+
+
+
+    $scope.averageRate = function(driverId){
+
+
+      console.log("calling averageRate");
+
+      var sum = 0;
+      var rates = [];
+
+
+      console.log("id we are passing inside averagerate is:" + driverId);
+
+      UsersService.read(driverId).then(function(response) {
+        $scope.user = response.data;
+        console.log($scope.user);
+
+      console.log("user rate is " + $scope.user.rate);
+      rates = $scope.user.rate;
+
+      for(var i =0; i < rates.length; i++){
+          sum += parseInt(rates[i],10);
+      }
+
+      var avg = sum / rates.length;
+
+      console.log("our average is" + avg);
+
+      $scope.rateAverage = avg;
+
+
+      }, function(error) {
+        $scope.error = 'Unable to retrieve ride!\n' + error;
+        console.log("nope");
+      });
+
+
+    };
 
 
 

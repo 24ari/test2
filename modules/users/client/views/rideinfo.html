@@ -11,7 +11,7 @@
     <body ng-controller = "RiderequestsController">
       <div ng-controller = "RidesController">
 
-         <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id);findUser(driverId)">
+         <form name = "userForm"  ng-controller="RiderequestsController" ng-init = "getRide(id);findUser(driverId);averageRate(driverId)">
 
         <fieldset>
           <legend><span class="number">1</span>About Driver</legend>
@@ -30,6 +30,10 @@
 
             <label for="mail">Phone <span class="glyphicon glyphicon-phone"></span></label>
           <input ng-model='user1.phone'  type= "text" id="phone" name="user_phone" placeholder="xxx-xxx-xxxx">
+
+          <label for="mail">Driver Rate</label>
+          <input ng-model='rateAverage'  type= "text" id="rate" name="user_rate" placeholder="rate"> 
+
         </fieldset>
 
         <fieldset>

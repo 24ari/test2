@@ -64,8 +64,8 @@
           return $http.get('/api/users/' +  userId);
       },
 
-      update: function(user, userId) {
-        return $http.put('/api/users/' + userId, user);
+      update: function(users,userId) {
+        return $http.put('/api/users/' + userId,users);
       },
 
       delete: function(userId){
