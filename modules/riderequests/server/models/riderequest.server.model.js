@@ -68,7 +68,8 @@ var RiderequestSchema = new Schema({
   },
 
   isCompleted:{
-    type:Boolean
+    type:Boolean,
+    default: false
   },
 
   date:{
