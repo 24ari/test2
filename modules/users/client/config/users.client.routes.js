@@ -63,6 +63,16 @@ angular.module('users').config(['$stateProvider',
       })
 
 
+       .state('viewrequest', { 
+        url: '/viewrequest/:rideId',
+        templateUrl: 'modules/users/client/views/view-requests.client.view.html',
+        controller: function($scope,$stateParams){
+          $scope.rideId = $stateParams.rideId;
+          console.log("request id is " + $stateParams.rideId);
+      }
+
+      })
+
 
     .state('dashboard1', { //come back to this later!!
         url: '/dashboard1',
