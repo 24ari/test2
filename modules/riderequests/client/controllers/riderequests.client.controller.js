@@ -377,6 +377,7 @@ return ride;
             RidesService.update(newUpRide,rideId).then(function(response) {
                 console.log("Success updating ride!");
                 console.log(response);
+                $state.go('dashboard1');
                 //$window.location.reload();
             });
 
@@ -483,7 +484,8 @@ return new Promise(function(resolve,reject){
 
     var request = {
         status : "accepted",
-        status : "accepted"
+        status : "accepted",
+        isAccepted: true,
     }
 
   console.log(" the request we are returning form saveRide in promise 2is:");
