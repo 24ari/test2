@@ -25,6 +25,7 @@
                   <th>Arrival</th>
                   <th></th>
                   <th></th>
+                  <th></th>
                 </tr>
               <!--  <tr ng-controller = "HeaderController" ng-repeat="riderequest in riderequests | filter: {rideId: rideId, riderequest.isAccepted: false} :true"> -->
 
@@ -39,7 +40,7 @@
                   <td><button type="button" class="btn btn-danger" onclick="return confirm('Are you sure?')" ng-click = "removeRequest(riderequest._id)">Decline</button></td>
 
                   <td><button type="button" class="btn btn-success"  ui-sref= "viewpassenger({passengerId: riderequest.requesterId})" >View</button></td>
-                 
+
 
                 </tr>
               </table>
@@ -48,7 +49,7 @@
         </div>
       </div>
     </div>
- 
+
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
