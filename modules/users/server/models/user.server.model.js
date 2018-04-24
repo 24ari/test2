@@ -78,9 +78,12 @@ var UserSchema = new Schema({
     type:String
   },
 
-  rate:{
-    type:String
-  },
+  // rate:{
+  //   type:String,
+  //   default: ''
+  // },
+
+  rate: [],
 
   carModel:{
     type:String

@@ -45,12 +45,22 @@ angular.module('users').config(['$stateProvider',
         url: '/passengerrate/:rideId',
         templateUrl: 'modules/users/client/views/user-rate.client.view.html',
         controller: function($scope,$stateParams){
-          $scope.rideId = $stateParams.rideId;
+          $scope.id = $stateParams.rideId;
           console.log("ride id is " + $stateParams.rideId);
       }
 
       })
 
+
+      .state('driverrate', { 
+        url: '/driverrate/:driverId',
+        templateUrl: 'modules/users/client/views/driver-rate.client.view.html',
+        controller: function($scope,$stateParams){
+          $scope.driverId = $stateParams.driverId;
+          console.log("driver id is " + $stateParams.driverId);
+      }
+
+      })
 
 
 
